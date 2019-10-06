@@ -1,18 +1,17 @@
-# MSIS Project
-This repo is for an in-class project in the MSIS program.
+# MSIS Final Project
+This repo is for our Final Project, the OCFR Case.
 
-## Our Project: Build a hospital triage system
+## Our Project: Build a Fire-fighter Certificate Management System
 
-For simplicity, assume that patient data is stored (mostly) in another system.
-Only basic identifying information will be in this system: Name, DOB, sex at
-birth, and a patient GUID to match the record to the other system.
+This project will allow the user to add, update and delete various persons in the Oconee Country Fire Rescue volunteer organization. 
+We will have certain sample data input in our Person table, Certification table as well as the Certification Tracking table. 
 
-When a patient visits, a single text field for symptom description is
-sufficient. The patient is assigned a triage priority, then waits for an
-doctor to become available. Patients are seen in priority order.
+Person's are identified by their ID, with attributes like firstname, lastname, stationnumber, radionumber, email adddress etc. 
+Certificates are identified by their ID, with attributes like certificate agency, certificate name and default expiration date. 
 
-When a doctor is finished treating a patient, s/he assigns the completion reason
-(one of discharged, admitted, deceased), and the visit is stored in a
-historical log.
+We will allow the user to:
+1) View multiple reports of lists of people filtered by certifications, radionumber, stationnumber etc.
+2) Add, update and delete various records of persons and certificates
+3) More detailed views of the person and certificate, including appropriate lists for each 
 
-Out of scope: Treatment, physician availability.
+***This is created by Team 17 - MSIS***
