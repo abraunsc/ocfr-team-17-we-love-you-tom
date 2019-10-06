@@ -3,14 +3,10 @@
     "description": "Team 17's Final Project",
     "license": "private",
     "authors": [{
-<<<<<<< HEAD
         "name": "Kai Yao",
         "name": "Simon Mantlo",
         "name": "Alex Braunscheidel",
         "name": "Simran Shah"
-=======
-        "name": "Derek"
->>>>>>> 12dec0ad138ea3e6c1dd5f755c6fa272852ea21a
     }],
     "require": {},
     "autoload": {
