@@ -3,11 +3,18 @@
     "description": "Team 17's Final Project",
     "license": "private",
     "authors": [{
-        "name": "Kai Yao",
-        "name": "Simon Mantlo",
-        "name": "Alex Braunscheidel",
-        "name": "Simran Shah"
-    }],
+        "name": "Kai Yao"
+    },
+    {
+      "name": "Simon Mantlo"
+    },
+    {
+      "name": "Alex Braunscheidel"
+    },
+    {
+      "name": "Simran Shah"
+    }
+  ],
     "require": {},
     "autoload": {
         "classmap": ["class/DbConnection.php"]
