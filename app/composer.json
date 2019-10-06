@@ -1,9 +1,9 @@
 {
-    "name": "iu-msis/project-triage",
-    "description": "An in-class example project",
+    "name": "ofcr-team-17-we-love-you-tom",
+    "description": "Team 17's Final Project",
     "license": "private",
     "authors": [{
-        "name": "Tom Gregory"
+        "name": "Derek"
     }],
     "require": {},
     "autoload": {
