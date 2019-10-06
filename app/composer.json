@@ -1,0 +1,15 @@
+{
+    "name": "ofcr-team-17-we-love-you-tom",
+    "description": "Team 17's Final Project",
+    "license": "private",
+    "authors": [{
+        "name": "Kai Yao",
+        "name": "Simon Mantlo",
+        "name": "Alex Braunscheidel",
+        "name": "Simran Shah"
+    }],
+    "require": {},
+    "autoload": {
+        "classmap": ["class/DbConnection.php"]
+    }
+}
