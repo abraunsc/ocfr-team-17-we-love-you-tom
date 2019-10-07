@@ -1,3 +1,5 @@
+USE ocfr; 
+
 CREATE TABLE Person (
     personId INTEGER PRIMARY KEY AUTO_INCREMENT,
     firstName VARCHAR(64),
