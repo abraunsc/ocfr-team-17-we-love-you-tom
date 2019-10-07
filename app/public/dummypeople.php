@@ -1,6 +1,6 @@
 [
   {
-    "personId": 001,
+    "personId": "001",
     "firstName": "Derek",
     "lastName": "Derkington",
     "address": "123 Waterfowl Lane Jacksonville, FL 32034",
@@ -10,10 +10,10 @@
     "startDate": "2018/03/20",
     "position": "Firefighter",
     "radioNumber": "A-323",
-    "isActive": 1
+    "isActive": "1"
   },
   {
-    "personId": 002,
+    "personId": "002",
     "firstName": "Jonathan",
     "lastName": "Phillips",
     "address": "233 Forest Tree Drive Jacksonville, FL 32034",
@@ -23,6 +23,6 @@
     "startDate": "2017/04/24",
     "position": "Firefighter",
     "radioNumber": "B-422",
-    "isActive": 1
+    "isActive": "1"
   }
 ]

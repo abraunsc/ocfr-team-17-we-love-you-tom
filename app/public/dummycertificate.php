@@ -7,7 +7,7 @@
 },
 {
   "certId": "02",
-  "certAgency": "Athens Technical College),",
+  "certAgency": "Athens Technical College",
   "certName": "Firefighter I",
   "defaultExpPeriod": "3"
 }
