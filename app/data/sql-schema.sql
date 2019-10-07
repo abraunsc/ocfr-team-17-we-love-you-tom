@@ -44,7 +44,7 @@ CREATE TABLE FireFighter (
 );
 
 CREATE TABLE Certificate (
-  certId INTEGER PRIMARY KEY AUTO_INCREMENT
+  certId INTEGER PRIMARY KEY AUTO_INCREMENT,
   certAgency VARCHAR(64),
   certName  VARCHAR(64),
   defaultExpPeriod INTEGER
@@ -56,7 +56,7 @@ CREATE TABLE CertTacking(
   dateRenewed DATE NOT NULL,
   expDate DATE,
   PRIMARY KEY (personId, certId),
-  FOREIGN KEY (personId) REFERENCES Person (personId)
+  FOREIGN KEY (personId) REFERENCES Person (personId),
   FOREIGN KEY (certId) REFERENCES Certificate (certId)
 );
 
@@ -66,6 +66,6 @@ CREATE TABLE ExpiredCertTracking(
   dateRenewed DATE NOT NULL,
   expDate DATE,
   PRIMARY KEY (personId, certId),
-  FOREIGN KEY (personId) REFERENCES CertTacking (personId)
+  FOREIGN KEY (personId) REFERENCES CertTacking (personId),
   FOREIGN KEY (certId) REFERENCES CertTacking (certId)
 )
