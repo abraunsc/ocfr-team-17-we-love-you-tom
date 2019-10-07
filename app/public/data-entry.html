@@ -34,7 +34,7 @@
 </nav>
 <ul class="nav nav-tabs" role="tablist">
   <li class="nav-item">
-    <a class="nav-link active" href="#add" role="tab" data-toggle="tab">Firefighters</a>
+    <a class="nav-link" href="#add" role="tab" data-toggle="tab">Firefighters</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="#update" role="tab" data-toggle="tab">Certificates</a>
@@ -51,11 +51,15 @@
     <table class="table table-sm table-hover">
       <thead>
         <tr>
-          <th>GUID</th>
-          <th>First</th>
-          <th>Last</th>
+          <th>Employee ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Address</th>
+          <th>Email</th>
           <th>DOB</th>
-          <th>SAB</th>
+          <th>Gender</th>
+          <th>Start Date</th>
+          <th>Position</th>
         </tr>
       </thead>
       <tbody>
@@ -68,16 +72,106 @@
         </tr>
       </tbody>
     </table>
+
+    <div class="container">
+      <div class="row">
+        <div id="mainContent" class="col-md">
+          <div id="patientRecordsApp">
+            <form @submit.prevent="handleSubmit">
+              <div class="form-group row">
+                <label for="inputFirstName" class="col-sm-2 col-form-label">First Name</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputFirstName" placeholder="First Name" v-model="recordPatient.firstName">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="inputLastName" class="col-sm-2 col-form-label">Last Name</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputLastName" placeholder="Last Name" v-model="recordPatient.lastName">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="inputAddress" class="col-sm-2 col-form-label">Address</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputAddress" placeholder="Address" v-model="recordPatient.address">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                  <input type="email" class="form-control" id="inputEmail" placeholder="Email" v-model="recordPatient.email">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="inputDob" class="col-sm-2 col-form-label">DOB</label>
+                <div class="col-sm-10">
+                  <input type="date" class="form-control" id="inputDob" placeholder="2001-12-13" v-model="recordPatient.dob">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="inputGender" class="col-sm-2 col-form-label">Gender</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputGender" placeholder="Male|Female" v-model="recordPatient.gender">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="inputStartDate" class="col-sm-2 col-form-label">Start Date</label>
+                <div class="col-sm-10">
+                  <input type="date" class="form-control" id="inputStartDate" placeholder="Start Date" v-model="recordPatient.startDate">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="inputPosition" class="col-sm-2 col-form-label">Position</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputPosition" placeholder="Position" v-model="recordPatient.position">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="inputRadioNumber" class="col-sm-2 col-form-label">Radio Number</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputRadioNumber" placeholder="Radio Number" v-model="recordPatient.radioNumber">
+                </div>
+              </div>
+
+              <div class="form-check-inline">
+                <label class="form-check-label" for="inputIsActiveYes">
+                  <input type="radio" class="form-check-input" id="inputIsActiveYes" name="isActive" value="Active" checked>Active
+                </label>
+              </div>
+              <div class="form-check-inline">
+                <label class="form-check-label" for="inputIsActiveNo">
+                  <input type="radio" class="form-check-input" id="inputIsActiveNo" name="isActive" value="Not Active">Not Active
+                </label>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-sm-10">
+                  <button type="submit" class="btn btn-primary">Add Employee</button>
+                  <button type="submit" class="btn btn-primary">Modify Employee</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <div role="tabpanel" class="tab-pane fade" id="update">
     <table class="table table-sm table-hover">
       <thead>
         <tr>
-          <th>GUID</th>
-          <th>First</th>
-          <th>Last</th>
-          <th>DOB</th>
-          <th>SAB</th>
+          <th>Certificate ID</th>
+          <th>Agency</th>
+          <th>Certificate Name</th>
+          <th>Expiration Period</th>
         </tr>
       </thead>
       <tbody>
@@ -90,16 +184,52 @@
         </tr>
       </tbody>
     </table>
+
+    <div class="container">
+      <div class="row">
+        <div id="mainContent" class="col-md">
+          <div id="patientRecordsApp">
+            <form @submit.prevent="handleSubmit">
+              <div class="form-group row">
+                <label for="inputFirstName" class="col-sm-2 col-form-label">Agency</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputFirstName" placeholder="First Name" v-model="recordPatient.firstName">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="inputLastName" class="col-sm-2 col-form-label">Certificate Name</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputLastName" placeholder="Last Name" v-model="recordPatient.lastName">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="inputAddress" class="col-sm-2 col-form-label">Expiration Period</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputAddress" placeholder="Address" v-model="recordPatient.address">
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-10">
+                  <button type="submit" class="btn btn-primary">Create Fire-Fighter Record</button>
+                  <button type="submit" class="btn btn-primary">Modify Certification</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <div role="tabpanel" class="tab-pane fade" id="delete">
     <table class="table table-sm table-hover">
       <thead>
         <tr>
-          <th>GUID</th>
-          <th>First</th>
-          <th>Last</th>
-          <th>DOB</th>
-          <th>SAB</th>
+          <th>Employee ID</th>
+          <th>Certificate ID</th>
+          <th>Date Renewed</th>
+          <th>Expiration Date</th>
         </tr>
       </thead>
       <tbody>
@@ -112,164 +242,48 @@
         </tr>
       </tbody>
     </table>
-  </div>
-</div>
 
-
-  <div class="container">
-    <div class="row">
-      <div id="mainContent" class="col-md">
-        <div id="patientRecordsApp">
-          <form @submit.prevent="handleSubmit">
-            <div class="form-group row">
-              <label for="inputFirstName" class="col-sm-2 col-form-label">First Name</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputFirstName" placeholder="First Name" v-model="recordPatient.firstName">
+    <div class="container">
+      <div class="row">
+        <div id="mainContent" class="col-md">
+          <div id="patientRecordsApp">
+            <form @submit.prevent="handleSubmit">
+              <div class="form-group row">
+                <label for="inputFirstName" class="col-sm-2 col-form-label">First Name</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputFirstName" placeholder="First Name" v-model="recordPatient.firstName">
+                </div>
               </div>
-            </div>
 
-            <div class="form-group row">
-              <label for="inputLastName" class="col-sm-2 col-form-label">Last Name</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputLastName" placeholder="Last Name" v-model="recordPatient.lastName">
+              <div class="form-group row">
+                <label for="inputLastName" class="col-sm-2 col-form-label">Last Name</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputLastName" placeholder="Last Name" v-model="recordPatient.lastName">
+                </div>
               </div>
-            </div>
 
-            <div class="form-group row">
-              <label for="inputAddress" class="col-sm-2 col-form-label">Address</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputAddress" placeholder="Address" v-model="recordPatient.address">
+              <div class="form-group row">
+                <label for="inputAddress" class="col-sm-2 col-form-label">Certificate Name</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputAddress" placeholder="Address" v-model="recordPatient.address">
+                </div>
               </div>
-            </div>
-
-            <div class="form-group row">
-              <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
-              <div class="col-sm-10">
-                <input type="email" class="form-control" id="inputEmail" placeholder="Email" v-model="recordPatient.email">
+              <div class="form-group row">
+                <div class="col-sm-10">
+                  <button type="submit" class="btn btn-primary">Add Certification to Employee</button>
+                  <button type="submit" class="btn btn-primary">Modify Certification</button>
+                </div>
               </div>
-            </div>
-
-            <div class="form-group row">
-              <label for="inputDob" class="col-sm-2 col-form-label">DOB</label>
-              <div class="col-sm-10">
-                <input type="date" class="form-control" id="inputDob" placeholder="2001-12-13" v-model="recordPatient.dob">
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <label for="inputGender" class="col-sm-2 col-form-label">Gender</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputGender" placeholder="Male|Female" v-model="recordPatient.gender">
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <label for="inputStartDate" class="col-sm-2 col-form-label">Start Date</label>
-              <div class="col-sm-10">
-                <input type="date" class="form-control" id="inputStartDate" placeholder="Start Date" v-model="recordPatient.startDate">
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <label for="inputPosition" class="col-sm-2 col-form-label">Position</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputPosition" placeholder="Position" v-model="recordPatient.position">
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <label for="inputRadioNumber" class="col-sm-2 col-form-label">Radio Number</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputRadioNumber" placeholder="Radio Number" v-model="recordPatient.radioNumber">
-              </div>
-            </div>
-
-            <div class="form-check-inline">
-              <label class="form-check-label" for="inputIsActiveYes">
-                <input type="radio" class="form-check-input" id="inputIsActiveYes" name="isActive" value="Active" checked>Active
-              </label>
-            </div>
-            <div class="form-check-inline">
-              <label class="form-check-label" for="inputIsActiveNo">
-                <input type="radio" class="form-check-input" id="inputIsActiveNo" name="isActive" value="Not Active">Not Active
-              </label>
-            </div>
-
-            <div class="form-group row">
-              <div class="col-sm-10">
-                <button type="submit" class="btn btn-primary">Create Fire-Fighter Record</button>
-              </div>
-            </div>
-          </form>
-
-
-
-        </div>
-
-        <div id="patientTriageApp">
-          <noscript v-if="false">This form requires Javascript!</noscript>
-          <form @submit.prevent="handleSubmit">
-            <div class="row">
-              <div class="form-group col-md-6">
-                <input type="text" class="form-control" id="triageFirstName" placeholder="First Name" v-model="patient.firstName" readonly>
-              </div>
-              <div class="form-group col-md-6">
-                <input type="text" class="form-control" id="triageLastName" placeholder="Last Name" v-model="patient.lastName" readonly>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="form-group col-md-4">
-                <input type="date" class="form-control" id="triageDob" placeholder="2001-12-13" v-model="patient.dob" readonly>
-              </div>
-              <div class="col"></div>
-              <div class="form-group col-md-2">
-                <input type="text" class="form-control" id="triageSexAtBirth" placeholder="M|F" v-model="patient.sexAtBirth" readonly>
-              </div>
-            </div>
-
-
-            <div class="form-group row">
-              <label for="triageDescription" class="col-sm-2 col-form-label">Reason for Visit</label>
-              <div class="col-sm-10">
-                <textarea class="form-control" id="triageDescription" placeholder="Symptoms; reason for visit" v-model="patient.visitDescription"></textarea>
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <label for="triagePriority" class="col-sm-2 col-form-label">Priority</label>
-              <div class="col-sm-10">
-                <select class="form-control" id="triagePriority" v-model="patient.priority" required>
-                  <option value="low">Low</option>
-                  <option value="medium">Medium</option>
-                  <option value="high">High</option>
-                </select>
-              </div>
-            </div>
-
-
-            <div class="form-group row">
-              <div class="col-sm-10">
-                <button type="submit" class="btn btn-primary">Admit Patient</button>
-              </div>
-            </div>
-          </form>
-        </div>
-
-      </div>
-
-      <div id="patientWaitingApp" class="col-md-3 queueView">
-        <div class="patient patientWaiting"
-        :class="patient.priority + 'Priority'"
-        v-for="patient in patients">
-          Arrival date<br>
-          <span class="patientName">{{ patient.lastName }}</span>,
-          <span class="patientName">{{ patient.firstName }}</span><br>
-          {{ patient.sexAtBirth }} {{ patient.dob }}
+            </form>
+          </div>
         </div>
       </div>
     </div>
   </div>
+</div>
+
+
+
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="js/waiting.app.js"></script>
   <script src="js/record.app.js"></script>
