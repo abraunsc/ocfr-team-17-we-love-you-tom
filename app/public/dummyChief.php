@@ -10,6 +10,7 @@
     "startDate": "2019-01-01",
     "position": "Chief",
     "radioNumber": "A-1",
+    "stationNumber": "1",
     "isActive": "0"
   }
 ]

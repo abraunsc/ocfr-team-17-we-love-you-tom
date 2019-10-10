@@ -10,6 +10,7 @@
     "startDate": "2018/03/20",
     "position": "Firefighter",
     "radioNumber": "A-323",
+    "stationNumber": "1",
     "isActive": "1"
   },
   {
@@ -23,6 +24,7 @@
     "startDate": "2017/04/24",
     "position": "Firefighter",
     "radioNumber": "B-422",
+    "stationNumber": "8",
     "isActive": "1"
   }
 ]
