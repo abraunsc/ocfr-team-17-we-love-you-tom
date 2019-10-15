@@ -13,13 +13,13 @@ var recordsApp = new Vue({
     handleSubmit(event) {
       fetch('api/records/index.php', {
         method: 'POST',
-        body: JSON.stringify(this.recordPatient),
+        body: JSON.stringify(this.recordPerson),
         headers: {
           "Content-Type": "application/json; charset=utf-8"
         }
       })
       .then( response => response.json())
-      .then( json => {patientRecordsApp.patients.push(json[0])})
+      .then( json => {patientRecordsApp.persons.push(json[0])})
       .catch( err => {
         console.error('RECORDS POST ERROR:');
         console.error(err);
@@ -30,8 +30,14 @@ var recordsApp = new Vue({
     this.recordPerson = {
       firstName: '',
       lastName: '',
+      address: '',
+      email: '',
       dob: '',
-      sexAtBirth: ''
+      gender: '',
+      startDate: '',
+      radioNumber: '',
+      position: '',
+      isActive: ''
     }
   }
 },
