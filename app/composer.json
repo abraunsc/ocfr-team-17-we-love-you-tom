@@ -15,7 +15,9 @@
       "name": "Simran Shah"
     }
   ],
-    "require": {},
+    "require": {
+      "ramsey/uuid": "^3.8"
+    },
     "autoload": {
         "classmap": ["class/DbConnection.php"]
     }
