@@ -10,7 +10,7 @@ if (isset($_GET['personId'])){
   $stmt->execute([$_GET['personId']]);
 }
 else {
-$stmt = $db->prepare('SELECT * FROM Person');
+$stmt = $db->prepare('SELECT * FROM FireFighter');
 $stmt->execute();
 }
 $persons = $stmt->fetchAll();

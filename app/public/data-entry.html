@@ -132,14 +132,16 @@
               <div class="form-group row">
                 <div class="col-sm-10">
                   <button type="submit" class="btn btn-primary">Add Employee</button>
-                  <button type="submit" class="btn btn-primary">Modify Employee</button>
+                  <form @submit.prevent = "handleEditPerson">
+                  <input type="submit" class="btn btn-primary" name="editPerson" value="Edit Person">
+                </form>
                 </div>
               </div>
             </form>
             <table class="table table-sm table-hover">
               <thead>
                 <tr>
-                  <th>Employee ID</th>
+
                   <th>First Name</th>
                   <th>Last Name</th>
                   <th>Address</th>
@@ -148,18 +150,25 @@
                   <th>Gender</th>
                   <th>Start Date</th>
                   <th>Position</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
                 <tr v-for="p in persons" @click="handleRowClick(p)">
-                  <td>{{ p.PersonId }}</td>
+
                   <td>{{ p.firstName }}</td>
                   <td>{{ p.lastName }}</td>
                   <td>{{ p.address }}</td>
+                  <td>{{ p.email }}</td>
                   <td>{{ p.dob }}</td>
                   <td>{{ p.gender }}</td>
                   <td>{{ p.startDate }}</td>
                   <td>{{ p.position }}</td>
+                  <td>
+                    <form name="f1" @submit.prevent="handleEditPerson" >
+                      <input id="edit1" type="submit" name="edit" value="Edit">
+                     </form>
+                   </td>
                 </tr>
               </tbody>
             </table>
@@ -197,7 +206,7 @@
               <div class="form-group row">
                 <label for="inputFirstName" class="col-sm-2 col-form-label">Agency</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="inputFirstName" placeholder="First Name" v-model="recordPatient.firstName">
+                  <input type="text" class="form-control" id="inputFirstName" placeholder="Agency" v-model="recordPatient.firstName">
                 </div>
               </div>
 
@@ -251,25 +260,37 @@
       <div class="row">
         <div id="mainContent" class="col-md">
           <div id="patientRecordsApp">
-            <form @submit.prevent="handleSubmit">
+            <form @submit.prevent="handleSubmitTrack">
               <div class="form-group row">
                 <label for="inputFirstName" class="col-sm-2 col-form-label">First Name</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="inputFirstName" placeholder="First Name" v-model="recordPatient.firstName">
+                  <input type="text" class="form-control" id="inputFirstNameTrack" placeholder="First Name" v-model="recordTrack.firstName">
                 </div>
               </div>
 
               <div class="form-group row">
                 <label for="inputLastName" class="col-sm-2 col-form-label">Last Name</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="inputLastName" placeholder="Last Name" v-model="recordPatient.lastName">
+                  <input type="text" class="form-control" id="inputLastNameTrack" placeholder="Last Name" v-model="recordTrack.lastName">
                 </div>
               </div>
 
               <div class="form-group row">
                 <label for="inputAddress" class="col-sm-2 col-form-label">Certificate Name</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="inputAddress" placeholder="Address" v-model="recordPatient.address">
+                  <input type="text" class="form-control" id="inputCertNameTrack" placeholder="Certificate Name" v-model="recordTrack.certName">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputAddress" class="col-sm-2 col-form-label">Renewed Date</label>
+                <div class="col-sm-10">
+                  <input type="date" class="form-control" id="inputRenewedDate" placeholder="Date Renewed" v-model="recordTrack.dateRenewed">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputAddress" class="col-sm-2 col-form-label">Expiry Date</label>
+                <div class="col-sm-10">
+                  <input type="date" class="form-control" id="inputExpDate" placeholder="Expiry Date" v-model="recordTrack.expDate">
                 </div>
               </div>
               <div class="form-group row">
