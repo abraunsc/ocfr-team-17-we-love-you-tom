@@ -1,7 +1,7 @@
 var reportsApp = new Vue({
   el: '#reportsApp',
   data: {
-    persons: []
+    persons: [],
   },
   methods: {
     fetchPersons() {
@@ -12,5 +12,24 @@ var reportsApp = new Vue({
   },
   created() {
     this.fetchPersons();
+  }
+});
+
+var reportsApp2 = new Vue({
+  el: '#reportsApp2',
+  data: {
+    personsbystationradio: []
+  },
+  methods: {
+    fetchPersonsByStationRadio() {
+      fetch('api/records/stationradio.php')
+      .then(response => response.json())
+      .then(json => { reportsApp2.personsbystationradio = json })
+    }
+  },
+  created() {
+
+    this.fetchPersonsByStationRadio();
+
   }
 });
