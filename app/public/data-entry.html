@@ -48,30 +48,7 @@
 <!-- Tab panes -->
 <div class="tab-content">
   <div role="tabpanel" class="tab-pane fade in active" id="add">
-    <table class="table table-sm table-hover">
-      <thead>
-        <tr>
-          <th>Employee ID</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Address</th>
-          <th>Email</th>
-          <th>DOB</th>
-          <th>Gender</th>
-          <th>Start Date</th>
-          <th>Position</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="p in patients" @click="handleRowClick(p)">
-          <td>{{ p.patientGuid }}</td>
-          <td>{{ p.firstName }}</td>
-          <td>{{ p.lastName }}</td>
-          <td>{{ p.dob }}</td>
-          <td>{{ p.sexAtBirth }}</td>
-        </tr>
-      </tbody>
-    </table>
+
 
     <div class="container">
       <div class="row">
@@ -159,6 +136,33 @@
                 </div>
               </div>
             </form>
+            <table class="table table-sm table-hover">
+              <thead>
+                <tr>
+                  <th>Employee ID</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Address</th>
+                  <th>Email</th>
+                  <th>DOB</th>
+                  <th>Gender</th>
+                  <th>Start Date</th>
+                  <th>Position</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="p in persons" @click="handleRowClick(p)">
+                  <td>{{ p.PersonId }}</td>
+                  <td>{{ p.firstName }}</td>
+                  <td>{{ p.lastName }}</td>
+                  <td>{{ p.address }}</td>
+                  <td>{{ p.dob }}</td>
+                  <td>{{ p.gender }}</td>
+                  <td>{{ p.startDate }}</td>
+                  <td>{{ p.position }}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

@@ -6,7 +6,7 @@ var recordsApp = new Vue({
   },
   methods: {
     fetchPersons() {
-      fetch('dummypeople.php')
+      fetch('api/records/')
       .then(response => response.json())
       .then(json => { recordsApp.persons = json })
     },
@@ -19,8 +19,8 @@ var recordsApp = new Vue({
           "Content-Type": "application/json; charset=utf-8"
         }
       })
-      // .then( response => response.json())
-      // .then( json => {recordsApp.persons.push(json[0])})
+       .then( response => response.json())
+       .then( json => {recordsApp.persons.push(json[0])})
       .catch( err => {
         console.error('RECORDS POST ERROR:');
         console.error(err);
