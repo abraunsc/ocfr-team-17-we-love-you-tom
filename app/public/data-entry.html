@@ -165,6 +165,7 @@
     </div>
   </div>
   <div role="tabpanel" class="tab-pane fade" id="update">
+    <div id="recordsApp2">
     <table class="table table-sm table-hover">
       <thead>
         <tr>
@@ -175,15 +176,15 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="p in patients" @click="handleRowClick(p)">
-          <td>{{ p.patientGuid }}</td>
-          <td>{{ p.firstName }}</td>
-          <td>{{ p.lastName }}</td>
-          <td>{{ p.dob }}</td>
-          <td>{{ p.sexAtBirth }}</td>
+        <tr v-for="c in certificate" @click="handleRowClick(p)">
+          <td>{{ c.certId }}</td>
+          <td>{{ c.certAgency }}</td>
+          <td>{{ c.certName }}</td>
+          <td>{{ c.defaultExpPeriod }}</td>
         </tr>
       </tbody>
     </table>
+  </div>
 
     <div class="container">
       <div class="row">

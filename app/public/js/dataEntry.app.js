@@ -46,3 +46,23 @@ var recordsApp = new Vue({
     this.fetchPersons();
   }
 } );
+// ------------------------------------------------------------------------------------
+var recordsApp2 = new Vue({
+  el: '#recordsApp2',
+  data: {
+    certificate: [],
+  },
+  methods: {
+    fetchCertificate() {
+      fetch('api/records/certpull.php')
+      .then(response => response.json())
+      .then(json => { recordsApp2.certificate = json })
+    },
+    handleSubmit(event) {
+  },
+
+},
+  created() {
+    this.fetchCertificate();
+  }
+} );
