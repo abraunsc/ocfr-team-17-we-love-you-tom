@@ -42,6 +42,17 @@ var recordsApp = new Vue({
     });
     this.handleReset();
   },
+  handleDeletePerson(event) {
+    fetch('api/records/deleteFireFighter.php', {
+      method: 'POST',
+      body: JSON.stringify(this.recordPerson),
+      headers: {
+        "Content-Type": "application/json; charset=utf-8"
+      }
+    })
+    this.recordPerson.splice(0,1);
+     //location.reload();
+  },
   handleReset() {
     this.recordPerson = {
       firstName: '',
@@ -71,6 +82,11 @@ var recordsApp3 = new Vue({
         recordTrack: {}
   },
   methods: {
+    fetchCertTrack() {
+      fetch('api/records/fetchCertTrack.php')
+      .then(response => response.json())
+      .then(json => { recordsApp3.certTrack = json })
+    },
     handleSubmitTrack(event) {
 
       fetch('api/records/postCertTrack.php', {
@@ -99,6 +115,6 @@ var recordsApp3 = new Vue({
     }
   },
   created() {
-
+    this.fetchCertTrack();
   }
 });

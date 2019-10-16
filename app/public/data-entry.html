@@ -172,8 +172,8 @@
                   <td>{{ p.startDate }}</td>
                   <td>{{ p.position }}</td>
                   <td>
-                    <form name="f1" @submit.prevent="handleEditPerson" >
-                      <input id="edit1" type="submit" name="edit" value="Edit">
+                    <form name="f1" @submit.prevent="handleDeletePerson" >
+                      <input id="edit1" type="submit" name="delete" value="Delete">
                      </form>
                    </td>
                 </tr>
@@ -300,8 +300,8 @@
               </thead>
               <tbody>
                 <tr v-for="p in certTrack">
-                  <td>{{ p.firstName }}</td>
-                  <td>{{ p.certName }}</td>
+                  <td>{{ p.personId }}</td>
+                  <td>{{ p.certId }}</td>
                   <td>{{ p.dateRenewed }}</td>
                   <td>{{ p.expDate }}</td>
 

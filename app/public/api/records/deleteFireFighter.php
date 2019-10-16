@@ -7,17 +7,9 @@
 $db = DbConnection::getConnection();
 
 // Step 2: Create & run the query
-$stmt = $db->prepare('DELETE FROM FireFighter WHERE 
+$stmt = $db->prepare('DELETE FROM FireFighter WHERE personId = ?');
 $stmt->execute([
-  $_POST['firstName'],
-  $_POST['lastName'],
-  $_POST['address'],
-  $_POST['email'],
-  $_POST['dob'],
-  $_POST['gender'],
-  $_POST['startDate'],
-  $_POST['radioNumber'],
-  $_POST['stationId']
+  $_POST['personId']
 ]);
 
 //TODO: Error checking
