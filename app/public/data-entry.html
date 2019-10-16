@@ -165,59 +165,59 @@
     </div>
   </div>
   <div role="tabpanel" class="tab-pane fade" id="update">
-    <div id="recordsApp2">
-    <table class="table table-sm table-hover">
-      <thead>
-        <tr>
-          <th>Certificate ID</th>
-          <th>Agency</th>
-          <th>Certificate Name</th>
-          <th>Expiration Period</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="c in certificate" @click="handleRowClick(p)">
-          <td>{{ c.certId }}</td>
-          <td>{{ c.certAgency }}</td>
-          <td>{{ c.certName }}</td>
-          <td>{{ c.defaultExpPeriod }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+
+
+
 
     <div class="container">
       <div class="row">
-        <div id="mainContent" class="col-md">
-          <div id="patientRecordsApp">
-            <form @submit.prevent="handleSubmit">
+        <div id="mainContent2" class="col-md">
+          <div id="recordsApp2">
+            <form @submit.prevent="handleSubmitCert">
               <div class="form-group row">
                 <label for="inputFirstName" class="col-sm-2 col-form-label">Agency</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="inputFirstName" placeholder="First Name" v-model="recordPatient.firstName">
+                  <input type="text" class="form-control"  placeholder="Agency" v-model="certRecord.certAgency">
                 </div>
               </div>
 
               <div class="form-group row">
                 <label for="inputLastName" class="col-sm-2 col-form-label">Certificate Name</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="inputLastName" placeholder="Last Name" v-model="recordPatient.lastName">
+                  <input type="text" class="form-control" placeholder="Certificate Name" v-model="certRecord.certName">
                 </div>
               </div>
 
               <div class="form-group row">
                 <label for="inputAddress" class="col-sm-2 col-form-label">Expiration Period</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="inputAddress" placeholder="Address" v-model="recordPatient.address">
+                  <input type="text" class="form-control"  placeholder="Expiration Period" v-model="certRecord.defaultExpPeriod">
                 </div>
               </div>
               <div class="form-group row">
                 <div class="col-sm-10">
-                  <button type="submit" class="btn btn-primary">Create Fire-Fighter Record</button>
-                  <button type="submit" class="btn btn-primary">Modify Certification</button>
+                  <button type="submit" class="btn btn-primary">Add Certificate</button>
                 </div>
               </div>
             </form>
+            <table class="table table-sm table-hover">
+              <thead>
+                <tr>
+                  <th>Certificate ID</th>
+                  <th>Agency</th>
+                  <th>Certificate Name</th>
+                  <th>Expiration Period</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="c in certificate" @click="handleRowClick(p)">
+                  <td>{{ c.certId }}</td>
+                  <td>{{ c.certAgency }}</td>
+                  <td>{{ c.certName }}</td>
+                  <td>{{ c.defaultExpPeriod }}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

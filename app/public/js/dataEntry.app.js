@@ -11,7 +11,6 @@ var recordsApp = new Vue({
       .then(json => { recordsApp.persons = json })
     },
     handleSubmit(event) {
-
       fetch('api/records/postFirefighter.php', {
         method: 'POST',
         body: JSON.stringify(this.recordPerson),
@@ -51,6 +50,7 @@ var recordsApp2 = new Vue({
   el: '#recordsApp2',
   data: {
     certificate: [],
+    certRecord:{}
   },
   methods: {
     fetchCertificate() {
@@ -58,8 +58,31 @@ var recordsApp2 = new Vue({
       .then(response => response.json())
       .then(json => { recordsApp2.certificate = json })
     },
-    handleSubmit(event) {
+    handleSubmitCert(event) {
+
+      console.log(this.certRecord);
+      fetch('api/records/postcert.php', {
+        method: 'POST',
+        body: JSON.stringify(this.certRecord),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+      .then( response => response.json())
+      .then( json => {recordsApp2.certificate.push(json[0])})
+      .catch( err => {
+        console.error('RECORDS POST ERROR:');
+        console.error(err);
+      });
+      this.handleReset();
   },
+  handleReset() {
+    this.certRecord = {
+      certAgency: '',
+      certName: '',
+      defaultExpPeriod: '',
+    }
+  }
 
 },
   created() {
