@@ -81,6 +81,17 @@ var recordsApp2 = new Vue({
   recordsApp2.certRecord = person;
 },
 
+handleDeleteCert(event) {
+  fetch('api/records/deleteFireFighter.php', {
+    method: 'POST',
+    body: JSON.stringify(this.certRecord),
+    headers: {
+      "Content-Type": "application/json; charset=utf-8"
+    }
+  })
+  // this.recordPerson.splice(0,1);
+   location.reload();
+},
   handleReset() {
     this.certRecord = {
       certAgency: '',
