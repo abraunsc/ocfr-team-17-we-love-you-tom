@@ -12,8 +12,6 @@ var recordsApp = new Vue({
     },
     handleSubmit(event) {
 
-      
-
       fetch('api/records/postFirefighter.php', {
         method: 'POST',
         body: JSON.stringify(this.recordPerson),
