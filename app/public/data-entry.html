@@ -56,6 +56,12 @@
           <div id="recordsApp">
             <form @submit.prevent="handleSubmit">
               <div class="form-group row">
+                <label for="inputPersonId" class="col-sm-2 col-form-label">Person Id</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputPersonId" placeholder="Person Id" v-model="recordPerson.personId" disabled>
+                </div>
+              </div>
+              <div class="form-group row">
                 <label for="inputFirstName" class="col-sm-2 col-form-label">First Name</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="inputFirstName" placeholder="First Name" v-model="recordPerson.firstName">
@@ -132,16 +138,17 @@
               <div class="form-group row">
                 <div class="col-sm-10">
                   <button type="submit" class="btn btn-primary">Add Employee</button>
-                  <form @submit.prevent = "handleEditPerson">
-                  <input type="submit" class="btn btn-primary" name="editPerson" value="Edit Person">
-                </form>
+
                 </div>
               </div>
             </form>
+            <form @submit.prevent = "handleEditPerson">
+            <input type="submit" class="btn btn-primary" name="editPerson" value="Edit Person">
+          </form>
             <table class="table table-sm table-hover">
               <thead>
                 <tr>
-
+                  <th>Person Id</th>
                   <th>First Name</th>
                   <th>Last Name</th>
                   <th>Address</th>
@@ -155,7 +162,7 @@
               </thead>
               <tbody>
                 <tr v-for="p in persons" @click="handleRowClick(p)">
-
+                  <td>{{ p.personId }}</td>
                   <td>{{ p.firstName }}</td>
                   <td>{{ p.lastName }}</td>
                   <td>{{ p.address }}</td>
@@ -236,30 +243,12 @@
     </div>
   </div>
   <div role="tabpanel" class="tab-pane fade" id="delete">
-    <table class="table table-sm table-hover">
-      <thead>
-        <tr>
-          <th>Employee ID</th>
-          <th>Certificate ID</th>
-          <th>Date Renewed</th>
-          <th>Expiration Date</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="p in patients" @click="handleRowClick(p)">
-          <td>{{ p.patientGuid }}</td>
-          <td>{{ p.firstName }}</td>
-          <td>{{ p.lastName }}</td>
-          <td>{{ p.dob }}</td>
-          <td>{{ p.sexAtBirth }}</td>
-        </tr>
-      </tbody>
-    </table>
+
 
     <div class="container">
       <div class="row">
-        <div id="mainContent" class="col-md">
-          <div id="patientRecordsApp">
+        <div id="mainContent3" class="col-md">
+          <div id="recordsApp3">
             <form @submit.prevent="handleSubmitTrack">
               <div class="form-group row">
                 <label for="inputFirstName" class="col-sm-2 col-form-label">First Name</label>
@@ -300,6 +289,25 @@
                 </div>
               </div>
             </form>
+            <table class="table table-sm table-hover">
+              <thead>
+                <tr>
+                  <th>Employee ID</th>
+                  <th>Certificate ID</th>
+                  <th>Date Renewed</th>
+                  <th>Expiration Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="p in certTrack">
+                  <td>{{ p.firstName }}</td>
+                  <td>{{ p.certName }}</td>
+                  <td>{{ p.dateRenewed }}</td>
+                  <td>{{ p.expDate }}</td>
+
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

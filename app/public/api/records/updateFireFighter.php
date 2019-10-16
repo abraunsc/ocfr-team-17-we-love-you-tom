@@ -8,7 +8,7 @@ $db = DbConnection::getConnection();
 
 // Step 2: Create & run the query
 $stmt = $db->prepare('UPDATE FireFighter
-  SET firstName = ?, lastName = ?, address = ?, email = ?, gender = ?, startDate = ?, radioNumber = ?, stationId = ? WHERE dob = ?');
+  SET firstName = ?, lastName = ?, address = ?, email = ?, gender = ?, startDate = ?, radioNumber = ?, stationId = ?, dob = ? WHERE personId = ?');
 $stmt->execute([
   $_POST['firstName'],
   $_POST['lastName'],
@@ -18,7 +18,8 @@ $stmt->execute([
   $_POST['startDate'],
   $_POST['radioNumber'],
   $_POST['stationId'],
-  $_POST['dob']
+  $_POST['dob'],
+  $_POST['personId']
 ]);
 
 //TODO: Error checking
