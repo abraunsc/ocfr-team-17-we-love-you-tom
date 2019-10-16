@@ -76,6 +76,11 @@ var recordsApp2 = new Vue({
       });
       this.handleReset();
   },
+
+  handleRowClickCert(person) {
+  recordsApp2.certRecord = person;
+},
+
   handleReset() {
     this.certRecord = {
       certAgency: '',

@@ -173,7 +173,7 @@
       <div class="row">
         <div id="mainContent2" class="col-md">
           <div id="recordsApp2">
-            <form @submit.prevent="handleSubmitCert">
+            <form @submit.prevent="handleSubmitCert" >
               <div class="form-group row">
                 <label for="inputFirstName" class="col-sm-2 col-form-label">Certificate ID</label>
                 <div class="col-sm-10">
@@ -218,7 +218,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="c in certificate" @click="handleRowClick(p)">
+                <tr v-for="c in certificate" @click="handleRowClickCert(c)">
                   <td>{{ c.certId }}</td>
                   <td>{{ c.certAgency }}</td>
                   <td>{{ c.certName }}</td>
