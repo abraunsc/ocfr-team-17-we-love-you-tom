@@ -82,7 +82,7 @@ var recordsApp2 = new Vue({
 },
 
 handleDeleteCert(event) {
-  fetch('api/records/deleteFireFighter.php', {
+  fetch('api/records/deleteCert.php', {
     method: 'POST',
     body: JSON.stringify(this.certRecord),
     headers: {
