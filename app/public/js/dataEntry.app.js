@@ -11,9 +11,6 @@ var recordsApp = new Vue({
       .then(json => { recordsApp.persons = json })
     },
     handleSubmit(event) {
-
-      
-
       fetch('api/records/postFirefighter.php', {
         method: 'POST',
         body: JSON.stringify(this.recordPerson),
@@ -39,8 +36,7 @@ var recordsApp = new Vue({
       gender: '',
       startDate: '',
       radioNumber: '',
-      position: '',
-      isActive: ''
+      stationId: ''
     }
   }
 },
