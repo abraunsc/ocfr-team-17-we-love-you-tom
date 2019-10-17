@@ -19,12 +19,16 @@ p.aboutocfr {
   color: #767676;
 }
 
-div.detailedView {
+div.center {
   width: 75%;
   margin-left: auto;
   margin-right: auto;
 }
 
 h1.center {
+  text-align: center;
+}
+
+h2.center {
   text-align: center;
 }
