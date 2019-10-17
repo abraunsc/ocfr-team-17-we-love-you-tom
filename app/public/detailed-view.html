@@ -38,21 +38,30 @@
       <div id="mainContent" class="col-md">
         <div id="detailedViewApp">
           <form @submit.prevent="handleSubmitPerson">
+            <br>
             <div class="form-group row">
               <label for="searchFirefighter" class="col-sm-2 col-form-label">Firefighter First Name</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control" id="searchFirefighterFirstName" placeholder="Firefighter First Name"  v-model="recordPerson.firstName">
-                <label for="searchFirefighter" class="col-sm-2 col-form-label">Firefighter Last Name</label>
+              </div>
+            </div>
+            <br>
+            <div class="form-group row">
+              <label for="searchFirefighter" class="col-sm-2 col-form-label">Firefighter Last Name</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="searchFirefighterLastName" placeholder="Firefighter Last Name"  v-model="recordPerson.lastName">
+                <br>
                 <button type="submit" class="btn btn-primary">Search</button>
               </div>
             </div>
-          </div></form><form @submit.prevent="handleSubmitCert">
+          </form>
+          <br>
+          <form @submit.prevent="handleSubmitCert">
             <div class="form-group row">
               <label for="searchCerts" class="col-sm-2 col-form-label">Certifications</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control" id="searchCerts" placeholder="Certifications" v-model="recordCert.certName">
+                <br>
                 <button type="submit" class="btn btn-primary">Search</button>
               </div>
             </div>
