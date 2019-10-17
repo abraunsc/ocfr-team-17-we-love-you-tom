@@ -57,29 +57,19 @@
             <table class="table table-sm table-hover">
               <thead>
                 <tr>
-                  <th>PersonId</th>
                   <th>First Name</th>
                   <th>Last Name</th>
-                  <th>DOB</th>
-                  <th>Email</th>
-                  <th>Position</th>
-                  <th>Station Number</th>
-                  <th>Radio Number</th>
                   <th>Certificate Name</th>
                   <th>Expiration Date</th>
-                  
+
                 </tr>
               </thead>
               <tbody>
                 <tr v-for="p in persons">
-                  <td>{{ p.personId }}</td>
                   <td>{{ p.firstName }}</td>
                   <td>{{ p.lastName }}</td>
-                  <td>{{ p.dob }}</td>
-                  <td>{{ p.email }}</td>
-                  <td>{{ p.position }}</td>
-                  <td>{{ p.stationNumber }}</td>
-                  <td>{{ p.radioNumber }}</td>
+                  <td>{{ p.certName }}</td>
+                  <td>{{ p.expDate }}</td>
 
                 </tr>
               </tbody>
@@ -136,7 +126,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="js/reports.app.js"></script>
-  <script src="js/dataEntry.app.js"></script>
 
 </body>
 </html>

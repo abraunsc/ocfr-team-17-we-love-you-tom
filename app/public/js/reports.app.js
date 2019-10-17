@@ -5,7 +5,7 @@ var reportsApp = new Vue({
   },
   methods: {
     fetchPersons() {
-      fetch('api/records/')
+      fetch('api/records/expiredCerts.php')
       .then(response => response.json())
       .then(json => { reportsApp.persons = json })
     }

@@ -21,7 +21,6 @@ var detailedViewApp = new Vue({
         console.error('RECORDS POST ERROR:');
         console.error(err);
       });
-      console.log(this.persons);
       this.handleReset();
   },
   handleSubmitCert(event) {
@@ -38,7 +37,6 @@ var detailedViewApp = new Vue({
       console.error('RECORDS POST ERROR:');
       console.error(err);
     });
-    console.log(this.persons);
     this.handleReset();
   },
   handleReset() {

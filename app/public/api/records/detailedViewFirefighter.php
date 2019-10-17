@@ -6,8 +6,8 @@ $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 
 
-$stmt = $db->prepare('SELECT firstName, lastName, certName, expDate FROM FireFighter inner join CertTracking 
-  on FireFighter.personId = CertTracking.personId inner join Certificate on CertTracking.certId = Certificate.certID
+$stmt = $db->prepare('SELECT firstName, lastName, certName, expDate FROM FireFighter inner join CertTracking
+  on FireFighter.personId = CertTracking.personId inner join Certificate on CertTracking.certId = Certificate.certId
   where firstName = ? and lastName = ?');
 $stmt->execute([$_POST['firstName'], $_POST['lastName']]);
 // else {
