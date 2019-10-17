@@ -314,6 +314,7 @@
                   <th>Certificate Name</th>
                   <th>Date Renewed</th>
                   <th>Expiration Date</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -324,7 +325,11 @@
                   <td>{{ p.certName }}</td>
                   <td>{{ p.dateRenewed }}</td>
                   <td>{{ p.expDate }}</td>
-
+                  <td>
+                    <form name="f1" @submit.prevent="handleDeleteCertTrack" >
+                      <input id="edit1" type="submit" name="delete" value="Delete">
+                     </form>
+                   </td>
                 </tr>
               </tbody>
             </table>

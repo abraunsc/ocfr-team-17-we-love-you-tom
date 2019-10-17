@@ -131,6 +131,17 @@ var recordsApp3 = new Vue({
         certId: ''
       }
     },
+    handleDeleteCertTrack(event) {
+      fetch('api/records/deleteCertTrack.php', {
+        method: 'POST',
+        body: JSON.stringify(this.recordTrack),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+      //this.recordPerson.splice(0,1);
+       location.reload();
+    },
     handleRowClick(person) {
       recordsApp3.recordTrack = person;
     }
