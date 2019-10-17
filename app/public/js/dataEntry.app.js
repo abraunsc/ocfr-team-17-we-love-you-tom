@@ -50,7 +50,7 @@ var recordsApp = new Vue({
         "Content-Type": "application/json; charset=utf-8"
       }
     })
-    this.recordPerson.splice(0,1);
+    //this.recordPerson.splice(0,1);
      //location.reload();
   },
   handleReset() {
@@ -104,14 +104,35 @@ var recordsApp3 = new Vue({
       // });
       this.handleResetCertTrack();
   },
+  handleEditCertTrack(event) {
+    fetch('api/records/updateCertTrack.php', {
+      method: 'POST',
+      body: JSON.stringify(this.recordTrack),
+      headers: {
+        "Content-Type": "application/json; charset=utf-8"
+      }
+    })
+     .then( response => response.json())
+     .then( json => {recordsApp.certTrack.push(json[0])})
+    .catch( err => {
+      console.error('RECORDS POST ERROR:');
+      console.error(err);
+    });
+    this.handleResetCertTrack();
+  },
     handleResetCertTrack() {
       this.recordTrack = {
         firstName: '',
         lastName: '',
         certName: '',
         dateRenewed: '',
-        expDate: ''
+        expDate: '',
+        personId: '',
+        certId: ''
       }
+    },
+    handleRowClick(person) {
+      recordsApp3.recordTrack = person;
     }
   },
   created() {

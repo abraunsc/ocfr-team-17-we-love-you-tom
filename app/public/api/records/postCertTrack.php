@@ -17,54 +17,24 @@ $stmt->execute([
   $_POST['certName']
 ]);
 
-$stmt = $db->prepare('UPDATE CertTracking SET dateRenewed = ?, expDate = ?
+$stmt2 = $db->prepare('UPDATE CertTracking SET dateRenewed = ?, expDate = ?
   WHERE personId in (SELECT personId FROM FireFighter WHERE firstName = ? and lastName = ?)
   and certId in (SELECT certId FROM Certificate WHERE certName = ?)');
-$stmt->execute([
+$stmt2->execute([
   $_POST['dateRenewed'],
   $_POST['expDate'],
   $_POST['firstName'],
   $_POST['lastName'],
   $_POST['certName']
-])
+]);
 
 header('HTTP/1.1 303 See Other');
 header('Location: ../records/');
 
-// $stmt = $db->prepare('SELECT * FROM CertTacking');
-// $stmt->execute();
-//
-// $certTrack = $stmt->fetchAll();
-// // patientGuid VARCHAR(64) PRIMARY KEY,
-// // firstName VARCHAR(64),
-// // lastName VARCHAR(64),
-// // dob DATE DEFAULT NULL,
-// // sexAtBirth CHAR(1) DEFAULT ''
-//
-// // Step 3: Convert to JSON
-// $json = json_encode($certTrack, JSON_PRETTY_PRINT);
-//
-//
-// // Step 4: Output
-// header('Content-Type: application/json');
-// echo $json;
-//
 
 
-// $stmt = $db->prepare('INSERT INTO
-//   (firstName, lastName, address, email, dob, gender, startDate, radioNumber, stationId)
-//   VALUES (?,?,?,?,?,?,?,?,?)');
-// $stmt->execute([
-//   $_POST['firstName'],
-//   $_POST['lastName'],
-//   $_POST['address'],
-//   $_POST['email'],
-//   $_POST['dob'],
-//   $_POST['gender'],
-//   $_POST['startDate'],
-//   $_POST['radioNumber'],
-//   $_POST['stationId']
-// ]);
+
+
 
 //TODO: Error checking
 

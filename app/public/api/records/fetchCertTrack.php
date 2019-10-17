@@ -6,7 +6,7 @@ $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 
 
-$stmt = $db->prepare('SELECT * FROM CertTracking');
+$stmt = $db->prepare('SELECT f.personId, f.firstName, f.lastName, c.certId, c.certName, ct.dateRenewed, ct.expDate FROM FireFighter f inner join CertTracking ct on f.personId = ct.personId inner join Certificate c on ct.certId = c.certId');
 $stmt->execute();
 
 $persons = $stmt->fetchAll();
