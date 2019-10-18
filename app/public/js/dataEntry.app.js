@@ -38,7 +38,7 @@ var recordsApp = new Vue({
       }
     })
      .then( response => response.json())
-     .then( json => {recordsApp.persons.push(json[0])})
+     .then( json => {recordsApp.persons = json })
     .catch( err => {
       console.error('RECORDS POST ERROR:');
       console.error(err);
@@ -79,6 +79,77 @@ var recordsApp = new Vue({
   }
 } );
 
+var recordsApp2 = new Vue({
+  el: '#recordsApp2',
+  data: {
+    certificate: [],
+    certRecord:{}
+  },
+  methods: {
+    fetchCertificate() {
+      fetch('api/records/certpull.php')
+      .then(response => response.json())
+      .then(json => { recordsApp2.certificate = json })
+    },
+    handleSubmitCert(event) {
+      console.log(this.certRecord);
+      fetch('api/records/postcert.php', {
+        method: 'POST',
+        body: JSON.stringify(this.certRecord),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+       .then( response => response.json())
+       .then( json => {recordsApp2.certificate = json })
+      .catch( err => {
+        console.error('RECORDS POST ERROR:');
+        console.error(err);
+      });
+      this.handleReset();
+  },
+  handleRowClickCert(person) {
+  recordsApp2.certRecord = person;
+},
+
+handleDeleteCert(event) {
+  fetch('api/records/deleteCert.php', {
+    method: 'POST',
+    body: JSON.stringify(this.certRecord),
+    headers: {
+      "Content-Type": "application/json; charset=utf-8"
+    }
+  })
+  // this.recordPerson.splice(0,1);
+   location.reload();
+
+},
+  handleReset() {
+
+    this.certRecord = {
+
+      certAgency: '',
+
+      certName: '',
+
+      defaultExpPeriod: '',
+
+    }
+
+  }
+
+
+
+},
+
+  created() {
+
+    this.fetchCertificate();
+
+  }
+
+} );
+
 var recordsApp3 = new Vue({
   el: '#recordsApp3',
   data: {
@@ -117,7 +188,7 @@ var recordsApp3 = new Vue({
       }
     })
      .then( response => response.json())
-     .then( json => {recordsApp.certTrack.push(json[0])})
+     .then( json => {recordsApp.certTrack = json })
     .catch( err => {
       console.error('RECORDS POST ERROR:');
       console.error(err);
