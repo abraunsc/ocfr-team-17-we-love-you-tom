@@ -33,42 +33,66 @@
     </div>
   </nav>
 
-  <div class="form-group row">
-    <label for="searchFirefighter" class="col-sm-2 col-form-label">Firefighter First Name</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="searchFirefighterFirstName" placeholder="Firefighter First Name"  v-model="recordPerson.firstName">
-      <label for="searchFirefighter" class="col-sm-2 col-form-label">Firefighter First Name</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="searchFirefighterLastName" placeholder="Firefighter Last Name"  v-model="recordPerson.lastName">
-      <button type="submit" class="btn btn-primary">Search</button>
+  <div class="container">
+    <div class="row">
+      <div id="mainContent" class="col-md">
+        <div id="detailedViewApp">
+          <form @submit.prevent="handleSubmitPerson">
+            <br>
+            <div class="form-group row">
+              <label for="searchFirefighter" class="col-sm-2 col-form-label">Firefighter First Name</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="searchFirefighterFirstName" placeholder="Firefighter First Name"  v-model="recordPerson.firstName">
+              </div>
+            </div>
+            <br>
+            <div class="form-group row">
+              <label for="searchFirefighter" class="col-sm-2 col-form-label">Firefighter Last Name</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="searchFirefighterLastName" placeholder="Firefighter Last Name"  v-model="recordPerson.lastName">
+                <br>
+                <button type="submit" class="btn btn-primary">Search</button>
+              </div>
+            </div>
+          </form>
+          <br>
+          <form @submit.prevent="handleSubmitCert">
+            <div class="form-group row">
+              <label for="searchCerts" class="col-sm-2 col-form-label">Certifications</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="searchCerts" placeholder="Certifications" v-model="recordCert.certName">
+                <br>
+                <button type="submit" class="btn btn-primary">Search</button>
+              </div>
+            </div>
+          </form>
+
+        <table class="table table-sm table-hover">
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Certification Name</th>
+              <th>Expiration Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="p in persons">
+              <td>{{ p.firstName }}</td>
+              <td>{{ p.lastName }}</td>
+              <td>{{ p.certName }}</td>
+              <td>{{ p.expDate }}</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="form-group row">
-    <label for="searchCerts" class="col-sm-2 col-form-label">Certifications</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="searchCerts" placeholder="Certifications">
-      <button type="submit" class="btn btn-primary">Search</button>
-    </div>
-  </div>
 
-  <table class="table table-sm table-hover">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Certifications</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="p in patients" @click="handleRowClick(p)">
-        <td>{{ p.name }}</td>
-        <td>{{ p.certs }}</td>
-      </tr>
-    </tbody>
-  </table>
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="js/reports.app.js"></script>
-  <script src="js/dataEntry.app.js"></script>
+  <script src="js/detailedView.app.js"></script>
 
 </body>
