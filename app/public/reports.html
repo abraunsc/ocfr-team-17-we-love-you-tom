@@ -46,89 +46,100 @@
 <!--Modified from Jek Bao Choo's code on https://codepen.io/jek/pen/BoWNRy -->
 
 <!-- Tab panes -->
-<div class="tab-content">
-  <div role="tabpanel" class="tab-pane fade in active" id="expiredcertificate">
-    <div class="container">
-      <div class="row">
-        <div id="mainContent" class="col-md">
-          <div id="reportsApp">
+<div class="center">
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane fade in active" id="expiredcertificate">
+      <div class="jumbotron">
+        <h1>Expired Certifications</h1>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div id="mainContent" class="col-md">
+            <div id="reportsApp">
 
 
-            <table class="table table-sm table-hover">
-              <thead>
-                <tr>
-                  <th>PersonId</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>DOB</th>
-                  <th>Email</th>
-                  <th>Position</th>
-                  <th>Station Number</th>
-                  <th>Radio Number</th>
-                  <th>Certificate Name</th>
-                  <th>Expiration Date</th>
+              <table class="table table-sm table-hover">
+                <thead>
+                  <tr>
+                    <th>PersonId</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>DOB</th>
+                    <th>Email</th>
+                    <th>Position</th>
+                    <th>Station Number</th>
+                    <th>Radio Number</th>
+                    <th>Certificate Name</th>
+                    <th>Expiration Date</th>
 
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="p in persons">
-                  <td>{{ p.personId }}</td>
-                  <td>{{ p.firstName }}</td>
-                  <td>{{ p.lastName }}</td>
-                  <td>{{ p.dob }}</td>
-                  <td>{{ p.email }}</td>
-                  <td>{{ p.position }}</td>
-                  <td>{{ p.stationNumber }}</td>
-                  <td>{{ p.radioNumber }}</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="p in persons">
+                    <td>{{ p.personId }}</td>
+                    <td>{{ p.firstName }}</td>
+                    <td>{{ p.lastName }}</td>
+                    <td>{{ p.dob }}</td>
+                    <td>{{ p.email }}</td>
+                    <td>{{ p.position }}</td>
+                    <td>{{ p.stationNumber }}</td>
+                    <td>{{ p.radioNumber }}</td>
 
-                </tr>
-              </tbody>
-            </table>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div role="tabpanel" class="tab-pane fade" id="bystationandradio">
-    <div class="container">
-      <div class="row">
-        <div id="mainContent2" class="col-md">
-          <div id="reportsApp2">
+    <div role="tabpanel" class="tab-pane fade" id="bystationandradio">
+      <div class="jumbotron">
+        <h1>Search By Station and Radio Number</h1>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div id="mainContent2" class="col-md">
+            <div id="reportsApp2">
 
 
-            <table class="table table-sm table-hover">
-              <thead>
-                <tr>
-                  <th>PersonId</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Email</th>
-                  <th>Position</th>
-                  <th>Station Number</th>
-                  <th>Radio Number</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="p in personsbystationradio">
-                  <td>{{ p.personId }}</td>
-                  <td>{{ p.firstName }}</td>
-                  <td>{{ p.lastName }}</td>
-                  <td>{{ p.email }}</td>
-                  <td>{{ p.position }}</td>
-                  <td>{{ p.stationId }}</td>
-                  <td>{{ p.radioNumber }}</td>
-                </tr>
-              </tbody>
-            </table>
+              <table class="table table-sm table-hover">
+                <thead>
+                  <tr>
+                    <th>PersonId</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Position</th>
+                    <th>Station Number</th>
+                    <th>Radio Number</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="p in personsbystationradio">
+                    <td>{{ p.personId }}</td>
+                    <td>{{ p.firstName }}</td>
+                    <td>{{ p.lastName }}</td>
+                    <td>{{ p.email }}</td>
+                    <td>{{ p.position }}</td>
+                    <td>{{ p.stationId }}</td>
+                    <td>{{ p.radioNumber }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div role="tabpanel" class="tab-pane fade" id="customisedreport">
-    <h2>Please select from the following options</h2>
-    <button class="btn btn-primary">Search Member Records</button>
-    <button class="btn btn-primary">Search Certificate Records</button>
+    <div role="tabpanel" class="tab-pane fade" id="customisedreport">
+      <div class="jumbotron">
+        <h1>Create a Customized Report</h1>
+      </div>
+      <h2>Please select from the following options</h2>
+      <button class="btn btn-primary">Search Member Records</button>
+      <button class="btn btn-primary">Search Certificate Records</button>
+    </div>
   </div>
 </div>
 
