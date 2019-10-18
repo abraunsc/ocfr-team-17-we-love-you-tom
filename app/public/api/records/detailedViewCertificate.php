@@ -5,14 +5,15 @@ $db = DbConnection::getConnection();
 
 // Step 2: Create & run the query
 
-if (isset($_GET['personId'])){
-  $stmt = $db->prepare('SELECT * FROM Person where personId = ?');
-  $stmt->execute([$_GET['personId']]);
-}
-else {
-$stmt = $db->prepare('SELECT * FROM FireFighter');
-$stmt->execute();
-}
+
+$stmt = $db->prepare('SELECT firstName, lastName, certName, expDate FROM FireFighter inner join CertTracking
+  on FireFighter.personId = CertTracking.personId inner join Certificate on CertTracking.certId = Certificate.certID
+  where certName = ?');
+$stmt->execute([$_POST['certName']]);
+// else {
+// $stmt = $db->prepare('SELECT * FROM FireFighter');
+// $stmt->execute();
+// }
 $persons = $stmt->fetchAll();
 // patientGuid VARCHAR(64) PRIMARY KEY,
 // firstName VARCHAR(64),

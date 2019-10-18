@@ -47,46 +47,28 @@
 
 <!-- Tab panes -->
 <div class="center">
-  <div class="tab-content">
-    <div role="tabpanel" class="tab-pane fade in active" id="add">
-      <div class="jumbotron">
-        <h1>Firefighters</h1>
-      </div>
-      <table class="table table-sm table-hover">
-        <thead>
-          <tr>
-            <th>Employee ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Address</th>
-            <th>Email</th>
-            <th>DOB</th>
-            <th>Gender</th>
-            <th>Start Date</th>
-            <th>Position</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="p in patients" @click="handleRowClick(p)">
-            <td>{{ p.patientGuid }}</td>
-            <td>{{ p.firstName }}</td>
-            <td>{{ p.lastName }}</td>
-            <td>{{ p.dob }}</td>
-            <td>{{ p.sexAtBirth }}</td>
-          </tr>
-        </tbody>
-      </table>
+<div class="tab-content">
+  <div class="jumbotron">
+    <h1>Firefighters</h1>
+  </div>
+  <div role="tabpanel" class="tab-pane fade in active" id="add">
 
-      <div class="container">
-        <div class="row">
-          <div id="mainContent" class="col-md">
-            <div id="recordsApp">
-              <form @submit.prevent="handleSubmit">
-                <div class="form-group row">
-                  <label for="inputFirstName" class="col-sm-2 col-form-label">First Name</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputFirstName" placeholder="First Name" v-model="recordPerson.firstName">
-                  </div>
+
+    <div class="container">
+      <div class="row">
+        <div id="mainContent" class="col-md">
+          <div id="recordsApp">
+            <form @submit.prevent="handleSubmit">
+              <div class="form-group row">
+                <label for="inputPersonId" class="col-sm-2 col-form-label">Person Id</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputPersonId" placeholder="Person Id" v-model="recordPerson.personId" disabled>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputFirstName" class="col-sm-2 col-form-label">First Name</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputFirstName" placeholder="First Name" v-model="recordPerson.firstName">
                 </div>
 
                 <div class="form-group row">
@@ -131,164 +113,254 @@
                   </div>
                 </div>
 
-                <div class="form-group row">
-                  <label for="inputPosition" class="col-sm-2 col-form-label">Position</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputPosition" placeholder="Position" v-model="recordPerson.position">
-                  </div>
+              <div class="form-group row">
+                <label for="inputRadioNumber" class="col-sm-2 col-form-label">Radio Number</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputRadioNumber" placeholder="Radio Number" v-model="recordPerson.radioNumber">
                 </div>
 
-                <div class="form-group row">
-                  <label for="inputRadioNumber" class="col-sm-2 col-form-label">Radio Number</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputRadioNumber" placeholder="Radio Number" v-model="recordPerson.radioNumber">
-                  </div>
+              <div class="form-group row">
+                <label for="inputStation" class="col-sm-2 col-form-label">Station Number</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputStation" placeholder="Station Number" v-model="recordPerson.stationId">
                 </div>
 
-                <div class="form-check-inline">
-                  <label class="form-check-label" for="inputIsActiveYes">
-                    <input type="radio" class="form-check-input" id="inputIsActiveYes" name="isActive" value="Active" checked>Active
-                  </label>
+              <div class="form-group row">
+                <label for="inputStation" class="col-sm-2 col-form-label">Station Number</label>
+                <div class="col-sm-10">
+                  <select v-model="stations">
+                      <option v-for="s in stations" :value="item">{{item}}</option>
+                  </select>
                 </div>
-                <div class="form-check-inline">
-                  <label class="form-check-label" for="inputIsActiveNo">
-                    <input type="radio" class="form-check-input" id="inputIsActiveNo" name="isActive" value="Not Active">Not Active
-                  </label>
-                </div>
+              </div>
 
-                <div class="form-group row">
-                  <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary">Add Employee</button>
-                    <button type="submit" class="btn btn-primary">Modify Employee</button>
-                  </div>
+
+
+              <div class="form-check-inline">
+                <label class="form-check-label" for="inputIsActiveYes">
+                  <input type="radio" class="form-check-input" id="inputIsActiveYes" name="isActive" value="Active" checked v-model="recordPerson.isActive" >Active
+                </label>
+              </div>
+              <div class="form-check-inline">
+                <label class="form-check-label" for="inputIsActiveNo">
+                  <input type="radio" class="form-check-input" id="inputIsActiveNo" name="isActive" value="Not Active">Not Active
+                </label>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-sm-10">
+                  <button type="submit" class="btn btn-primary">Add Employee</button>
+
                 </div>
-              </form>
-            </div>
+              </div>
+            </form>
+            <form @submit.prevent = "handleEditPerson">
+            <input type="submit" class="btn btn-primary" name="editPerson" value="Edit Person">
+          </form>
+            <table class="table table-sm table-hover">
+              <thead>
+                <tr>
+                  <th>Person Id</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Address</th>
+                  <th>Email</th>
+                  <th>DOB</th>
+                  <th>Gender</th>
+                  <th>Start Date</th>
+                  <th>Position</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="p in persons" @click="handleRowClick(p)">
+                  <td>{{ p.personId }}</td>
+                  <td>{{ p.firstName }}</td>
+                  <td>{{ p.lastName }}</td>
+                  <td>{{ p.address }}</td>
+                  <td>{{ p.email }}</td>
+                  <td>{{ p.dob }}</td>
+                  <td>{{ p.gender }}</td>
+                  <td>{{ p.startDate }}</td>
+                  <td>{{ p.position }}</td>
+                  <td>
+                    <form name="f1" @submit.prevent="handleDeletePerson" >
+                      <input id="edit1" type="submit" name="delete" value="Delete">
+                     </form>
+                   </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
     </div>
-    <div role="tabpanel" class="tab-pane fade" id="update">
-      <div class="jumbotron">
-        <form class="form-inline">
-          <h1>Certificates</h1>
-        </form>
-      </div>
-      <br>
-      <table class="table table-sm table-hover">
-        <thead>
-          <tr>
-            <th>Certificate ID</th>
-            <th>Agency</th>
-            <th>Certificate Name</th>
-            <th>Expiration Period</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="p in patients" @click="handleRowClick(p)">
-            <td>{{ p.patientGuid }}</td>
-            <td>{{ p.firstName }}</td>
-            <td>{{ p.lastName }}</td>
-            <td>{{ p.dob }}</td>
-            <td>{{ p.sexAtBirth }}</td>
-          </tr>
-        </tbody>
-      </table>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="update">
+    <div class="jumbotron">
+      <form class="form-inline">
+        <h1>Certificates</h1>
+      </form>
+    </div>
 
-      <div class="container">
-        <div class="row">
-          <div id="mainContent" class="col-md">
-            <div id="patientRecordsApp">
-              <form @submit.prevent="handleSubmit">
-                <div class="form-group row">
-                  <label for="inputFirstName" class="col-sm-2 col-form-label">Agency</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputFirstName" placeholder="First Name" v-model="recordPatient.firstName">
-                  </div>
+    <div class="container">
+      <div class="row">
+        <div id="mainContent2" class="col-md">
+          <div id="recordsApp2">
+            <form @submit.prevent="handleSubmitCert" >
+              <div class="form-group row">
+                <label for="inputFirstName" class="col-sm-2 col-form-label">Certificate ID</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control"  placeholder="Certificate ID" v-model="certRecord.certId" disabled>
+                </div>
+              </div>
+
+
+              <div class="form-group row">
+                <label for="inputFirstName" class="col-sm-2 col-form-label">Agency</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control"  placeholder="Agency" v-model="certRecord.certAgency">
                 </div>
 
-                <div class="form-group row">
-                  <label for="inputLastName" class="col-sm-2 col-form-label">Certificate Name</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputLastName" placeholder="Last Name" v-model="recordPatient.lastName">
-                  </div>
+              <div class="form-group row">
+                <label for="inputLastName" class="col-sm-2 col-form-label">Certificate Name</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" placeholder="Certificate Name" v-model="certRecord.certName">
                 </div>
 
-                <div class="form-group row">
-                  <label for="inputAddress" class="col-sm-2 col-form-label">Expiration Period</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputAddress" placeholder="Address" v-model="recordPatient.address">
-                  </div>
+              <div class="form-group row">
+                <label for="inputAddress" class="col-sm-2 col-form-label">Expiration Period</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control"  placeholder="Expiration Period" v-model="certRecord.defaultExpPeriod">
                 </div>
-                <div class="form-group row">
-                  <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary">Create Fire-Fighter Record</button>
-                    <button type="submit" class="btn btn-primary">Modify Certification</button>
-                  </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-10">
+                  <button type="submit" class="btn btn-primary">Add Certificate</button>
                 </div>
-              </form>
-            </div>
+              </div>
+            </form>
+            <table class="table table-sm table-hover">
+              <thead>
+                <tr>
+                  <th>Certificate ID</th>
+                  <th>Agency</th>
+                  <th>Certificate Name</th>
+                  <th>Expiration Period</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="c in certificate" @click="handleRowClickCert(c)">
+                  <td>{{ c.certId }}</td>
+                  <td>{{ c.certAgency }}</td>
+                  <td>{{ c.certName }}</td>
+                  <td>{{ c.defaultExpPeriod }}</td>
+
+                  <td>
+                    <form name="f1" @submit.prevent="handleDeleteCert" >
+                      <input id="editcert" type="submit" name="delete" value="Delete">
+                     </form>
+                   </td>
+
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
     </div>
-    <div role="tabpanel" class="tab-pane fade" id="delete">
-      <div class="jumbotron">
-        <h1>Firefighter Certificates</h1>
-      </div>
-      <table class="table table-sm table-hover">
-        <thead>
-          <tr>
-            <th>Employee ID</th>
-            <th>Certificate ID</th>
-            <th>Date Renewed</th>
-            <th>Expiration Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="p in patients" @click="handleRowClick(p)">
-            <td>{{ p.patientGuid }}</td>
-            <td>{{ p.firstName }}</td>
-            <td>{{ p.lastName }}</td>
-            <td>{{ p.dob }}</td>
-            <td>{{ p.sexAtBirth }}</td>
-          </tr>
-        </tbody>
-      </table>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="delete">
+    <div class="jumbotron">
+      <h1>Firefighter Certificates</h1>
+    </div>
 
-      <div class="container">
-        <div class="row">
-          <div id="mainContent" class="col-md">
-            <div id="patientRecordsApp">
-              <form @submit.prevent="handleSubmit">
-                <div class="form-group row">
-                  <label for="inputFirstName" class="col-sm-2 col-form-label">First Name</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputFirstName" placeholder="First Name" v-model="recordPatient.firstName">
-                  </div>
+    <div class="container">
+      <div class="row">
+        <div id="mainContent3" class="col-md">
+          <div id="recordsApp3">
+            <form @submit.prevent="handleSubmitTrack">
+              <div class="form-group row">
+                <label for="inputFirstName" class="col-sm-2 col-form-label">Person Id</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputPersonIdCert" placeholder="Person Id" v-model="recordTrack.personId" disabled>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="inputFirstName" class="col-sm-2 col-form-label">Cert Id</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputCertIdCert" placeholder="Cert Id" v-model="recordTrack.certId" disabled>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputFirstName" class="col-sm-2 col-form-label">First Name</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputFirstNameTrack" placeholder="First Name" v-model="recordTrack.firstName">
                 </div>
 
-                <div class="form-group row">
-                  <label for="inputLastName" class="col-sm-2 col-form-label">Last Name</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputLastName" placeholder="Last Name" v-model="recordPatient.lastName">
-                  </div>
+              <div class="form-group row">
+                <label for="inputLastName" class="col-sm-2 col-form-label">Last Name</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputLastNameTrack" placeholder="Last Name" v-model="recordTrack.lastName">
                 </div>
 
-                <div class="form-group row">
-                  <label for="inputAddress" class="col-sm-2 col-form-label">Certificate Name</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputAddress" placeholder="Address" v-model="recordPatient.address">
-                  </div>
+              <div class="form-group row">
+                <label for="inputAddress" class="col-sm-2 col-form-label">Certificate Name</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputCertNameTrack" placeholder="Certificate Name" v-model="recordTrack.certName">
                 </div>
-                <div class="form-group row">
-                  <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary">Add Certification to Employee</button>
-                    <button type="submit" class="btn btn-primary">Modify Certification</button>
-                  </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputAddress" class="col-sm-2 col-form-label">Renewed Date</label>
+                <div class="col-sm-10">
+                  <input type="date" class="form-control" id="inputRenewedDate" placeholder="Date Renewed" v-model="recordTrack.dateRenewed">
                 </div>
-              </form>
-            </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputAddress" class="col-sm-2 col-form-label">Expiry Date</label>
+                <div class="col-sm-10">
+                  <input type="date" class="form-control" id="inputExpDate" placeholder="Expiry Date" v-model="recordTrack.expDate">
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-10">
+                  <button type="submit" class="btn btn-primary">Add Certification to Employee</button>
+
+                </div>
+              </div>
+            </form>
+            <form @submit.prevent = "handleEditCertTrack">
+              <button type="submit" class="btn btn-primary">Modify Certification</button>
+            </form>
+            <table class="table table-sm table-hover">
+              <thead>
+                <tr>
+                  <th>Employee ID</th>
+                  <th>Employee Name</th>
+                  <th>Certificate ID</th>
+                  <th>Certificate Name</th>
+                  <th>Date Renewed</th>
+                  <th>Expiration Date</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="p in certTrack" @click="handleRowClick(p)">
+                  <td>{{ p.personId }}</td>
+                  <td>{{ p.firstName }} {{ p.lastName }}</td>
+                  <td>{{ p.certId }}</td>
+                  <td>{{ p.certName }}</td>
+                  <td>{{ p.dateRenewed }}</td>
+                  <td>{{ p.expDate }}</td>
+                  <td>
+                    <form name="f1" @submit.prevent="handleDeleteCertTrack" >
+                      <input id="edit1" type="submit" name="delete" value="Delete">
+                     </form>
+                   </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
@@ -299,9 +371,7 @@
 
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <script src="js/waiting.app.js"></script>
-  <script src="js/record.app.js"></script>
-  <script src="js/triage.app.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <!-- <script src="js/reports.app.js"></script> -->
+  <script src="js/dataEntry.app.js"></script>
 </body>
-</html>

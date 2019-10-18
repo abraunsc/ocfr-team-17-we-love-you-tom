@@ -1,4 +1,4 @@
-USE ocfr; 
+USE ocfr;
 
 CREATE TABLE Person (
     personId INTEGER PRIMARY KEY AUTO_INCREMENT,
@@ -52,13 +52,13 @@ CREATE TABLE Certificate (
   defaultExpPeriod INTEGER
 );
 
-CREATE TABLE CertTacking(
+CREATE TABLE CertTracking(
   personId INTEGER,
   certId INTEGER,
   dateRenewed DATE NOT NULL,
   expDate DATE,
   PRIMARY KEY (personId, certId),
-  FOREIGN KEY (personId) REFERENCES Person (personId),
+  FOREIGN KEY (personId) REFERENCES FireFighter (personId),
   FOREIGN KEY (certId) REFERENCES Certificate (certId)
 );
 
@@ -68,6 +68,6 @@ CREATE TABLE ExpiredCertTracking(
   dateRenewed DATE NOT NULL,
   expDate DATE,
   PRIMARY KEY (personId, certId),
-  FOREIGN KEY (personId) REFERENCES CertTacking (personId),
-  FOREIGN KEY (certId) REFERENCES CertTacking (certId)
+  FOREIGN KEY (personId) REFERENCES CertTracking (personId),
+  FOREIGN KEY (certId) REFERENCES CertTracking (certId)
 )

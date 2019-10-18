@@ -9,6 +9,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="jquery-3.4.1.min.js"></script>
+  <script src="js/downloadTable.app.js"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="css/site.css">
 </head>
@@ -72,62 +74,65 @@
                     <th>Certificate Name</th>
                     <th>Expiration Date</th>
 
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr v-for="p in persons">
-                    <td>{{ p.personId }}</td>
-                    <td>{{ p.firstName }}</td>
-                    <td>{{ p.lastName }}</td>
-                    <td>{{ p.dob }}</td>
-                    <td>{{ p.email }}</td>
-                    <td>{{ p.position }}</td>
-                    <td>{{ p.stationNumber }}</td>
-                    <td>{{ p.radioNumber }}</td>
+            <table class="table table-sm table-hover">
+              <thead>
+                <tr>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Certificate Name</th>
+                  <th>Expiration Date</th>
 
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="p in persons">
+                  <td>{{ p.firstName }}</td>
+                  <td>{{ p.lastName }}</td>
+                  <td>{{ p.certName }}</td>
+                  <td>{{ p.expDate }}</td>
+
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
     </div>
-    <div role="tabpanel" class="tab-pane fade" id="bystationandradio">
-      <div class="jumbotron">
-        <h1>Search By Station and Radio Number</h1>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div id="mainContent2" class="col-md">
-            <div id="reportsApp2">
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="bystationandradio">
+    <div class="jumbotron">
+      <h1>Search By Station and Radio Number</h1>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div id="mainContent2" class="col-md">
+          <div id="reportsApp2">
 
 
-              <table class="table table-sm table-hover">
-                <thead>
-                  <tr>
-                    <th>PersonId</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Email</th>
-                    <th>Position</th>
-                    <th>Station Number</th>
-                    <th>Radio Number</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr v-for="p in personsbystationradio">
-                    <td>{{ p.personId }}</td>
-                    <td>{{ p.firstName }}</td>
-                    <td>{{ p.lastName }}</td>
-                    <td>{{ p.email }}</td>
-                    <td>{{ p.position }}</td>
-                    <td>{{ p.stationId }}</td>
-                    <td>{{ p.radioNumber }}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            <table class="table table-sm table-hover">
+              <thead>
+                <tr>
+                  <th>PersonId</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Email</th>
+                  <th>Position</th>
+                  <th>Station Number</th>
+                  <th>Radio Number</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="p in personsbystationradio">
+                  <td>{{ p.personId }}</td>
+                  <td>{{ p.firstName }}</td>
+                  <td>{{ p.lastName }}</td>
+                  <td>{{ p.email }}</td>
+                  <td>{{ p.position }}</td>
+                  <td>{{ p.stationId }}</td>
+                  <td>{{ p.radioNumber }}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
@@ -147,7 +152,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="js/reports.app.js"></script>
-  <script src="js/dataEntry.app.js"></script>
 
 </body>
 </html>
