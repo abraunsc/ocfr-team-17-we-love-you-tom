@@ -1,4 +1,3 @@
-
 <?php
 include 'vendor/autoload.php';
 // This block decodes POSTed JSON and adds it to $_POST for easier use
