@@ -68,8 +68,8 @@ var recordsApp2 = new Vue({
           "Content-Type": "application/json; charset=utf-8"
         }
       })
-      .then( response => response.json())
-      .then( json => {recordsApp2.certificate.push(json[0])})
+      // .then( response => response.json())
+      // .then( json => {recordsApp2.certificate.push(json[0])})
       .catch( err => {
         console.error('RECORDS POST ERROR:');
         console.error(err);
