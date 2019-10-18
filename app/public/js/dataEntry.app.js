@@ -2,13 +2,20 @@ var recordsApp = new Vue({
   el: '#recordsApp',
   data: {
     persons: [],
-    recordPerson: {}
+    recordPerson: {},
+    stations: []
   },
   methods: {
     fetchPersons() {
       fetch('api/records/')
       .then(response => response.json())
       .then(json => { recordsApp.persons = json })
+    },
+    fetchStations() {
+      fetch('api/records/fetchStations.php')
+      .then(response => response.json())
+      .then(json => { recordsApp.stations = json })
+      console.log(this.stations);
     },
     handleSubmit(event) {
       fetch('api/records/postFirefighter.php', {
@@ -68,6 +75,7 @@ var recordsApp = new Vue({
 },
   created() {
     this.fetchPersons();
+    this.fetchStations();
   }
 } );
 

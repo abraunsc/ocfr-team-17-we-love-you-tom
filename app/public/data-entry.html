@@ -124,6 +124,17 @@
                 </div>
               </div>
 
+              <div class="form-group row">
+                <label for="inputStation" class="col-sm-2 col-form-label">Station Number</label>
+                <div class="col-sm-10">
+                  <select v-model="stations">
+                      <option v-for="s in stations" :value="item">{{item}}</option>
+                  </select>
+                </div>
+              </div>
+
+
+
               <div class="form-check-inline">
                 <label class="form-check-label" for="inputIsActiveYes">
                   <input type="radio" class="form-check-input" id="inputIsActiveYes" name="isActive" value="Active" checked v-model="recordPerson.isActive" >Active
