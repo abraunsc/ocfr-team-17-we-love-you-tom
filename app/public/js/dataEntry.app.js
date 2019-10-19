@@ -3,7 +3,10 @@ var recordsApp = new Vue({
   data: {
     persons: [],
     recordPerson: {},
-    stations: []
+    stations: [],
+    filter: {
+    gender: ''
+  }
   },
   methods: {
     fetchPersons() {
