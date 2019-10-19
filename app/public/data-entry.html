@@ -129,8 +129,8 @@
               <div class="form-group row">
                 <label for="inputStation" class="col-sm-2 col-form-label">Station Number</label>
                 <div class="col-sm-10">
-                  <select v-model="stations">
-                      <option v-for="s in stations" :value="s.staionId">{{ s.stationId }}</option>
+                  <select v-model="recordPerson.stationId">
+                      <option v-for="s in stations" :value="s.stationId">{{ s.stationId }}</option>
                   </select>
                 </div>
               </div>
@@ -177,6 +177,7 @@
                   <th>Gender</th>
                   <th>Start Date</th>
                   <th>Position</th>
+                  <th>Station Id</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -191,6 +192,7 @@
                   <td>{{ p.gender }}</td>
                   <td>{{ p.startDate }}</td>
                   <td>{{ p.position }}</td>
+                  <td>{{ p.stationId }}</td>
                   <td>
                     <form name="f1" @submit.prevent="handleDeletePerson" >
                       <input id="edit1" type="submit" name="delete" value="Delete">
