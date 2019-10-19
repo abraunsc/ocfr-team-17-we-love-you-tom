@@ -8,7 +8,8 @@ var detailedViewApp = new Vue({
   },
   methods: {
     handleSubmitPerson(event) {
-      fetch('api/records/detailedViewFirefighter.php', {
+      console.log(this.recordPerson);
+      fetch('api/records/detailedView.php', {
         method: 'POST',
         body: JSON.stringify(this.recordPerson),
         headers: {
@@ -24,7 +25,7 @@ var detailedViewApp = new Vue({
       this.handleReset();
   },
   handleSubmitCert(event) {
-    fetch('api/records/detailedViewCertificate.php', {
+    fetch('api/records/detailedView.php', {
       method: 'POST',
       body: JSON.stringify(this.recordCert),
       headers: {
@@ -45,6 +46,13 @@ var detailedViewApp = new Vue({
       lastName: '',
       certName: '',
       expDate: ''
+    };
+    this.recordCert = {
+      certName: ''
+    }
+    this.recordPerson = {
+      firstName: null,
+      lastName: null
     }
   },
   handleRowClick(person) {

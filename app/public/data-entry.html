@@ -129,7 +129,7 @@
                 <label for="inputStation" class="col-sm-2 col-form-label">Station Number</label>
                 <div class="col-sm-10">
                   <select v-model="stations">
-                      <option v-for="s in stations" :value="item">{{item}}</option>
+                      <option v-for="s in stations" :value="s.staionId">{{ s.stationId }}</option>
                   </select>
                 </div>
               </div>
@@ -196,6 +196,9 @@
       </div>
     </div>
   </div>
+</div>
+</div>
+</div>
   <div role="tabpanel" class="tab-pane fade" id="update">
     <div class="jumbotron">
       <form class="form-inline">
@@ -270,11 +273,12 @@
       </div>
     </div>
   </div>
+</div>
+</div>
   <div role="tabpanel" class="tab-pane fade" id="delete">
     <div class="jumbotron">
       <h1>Firefighter Certificates</h1>
     </div>
-
     <div class="container">
       <div class="row">
         <div id="mainContent3" class="col-md">

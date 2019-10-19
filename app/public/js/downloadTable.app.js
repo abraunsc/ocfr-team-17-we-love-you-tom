@@ -10,8 +10,7 @@ $(document).ready(function () {
            var csv = $table.table2CSV({
                delivery: 'value'
            });
-           window.location.href = 'data:text/csv;charset=UTF-8,'
-           + encodeURIComponent(csv);
+           window.location.href = 'data:text/csv;charset=UTF-8,' + encodeURIComponent(csv);
        });
    });
 })

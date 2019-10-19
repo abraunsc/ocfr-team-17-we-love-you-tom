@@ -32,3 +32,10 @@ h1.center {
 h2.center {
   text-align: center;
 }
+
+.detaiiledViewBox {
+  border: 2px solid black;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: rgb(228, 189, 114);
+}
