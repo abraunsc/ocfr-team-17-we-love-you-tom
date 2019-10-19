@@ -18,7 +18,6 @@ var recordsApp = new Vue({
       fetch('api/records/fetchStations.php')
       .then(response => response.json())
       .then(json => { recordsApp.stations = json })
-      console.log(this.stations);
     },
     handleSubmit(event) {
       fetch('api/records/postFirefighter.php', {
@@ -70,6 +69,10 @@ var recordsApp = new Vue({
       startDate: '',
       radioNumber: '',
       stationId: ''
+    };
+    this.stations = {
+      stationId: '',
+      chiefId: ''
     }
   },
   handleRowClick(person) {
