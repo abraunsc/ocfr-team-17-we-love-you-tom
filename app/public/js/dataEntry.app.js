@@ -160,16 +160,28 @@ var recordsApp3 = new Vue({
   el: '#recordsApp3',
   data: {
         certTrack: [],
-        recordTrack: {}
+        recordTrack: {},
+        persons: [],
+        certificate: []
   },
   methods: {
+    fetchPersons() {
+      fetch('api/records/')
+      .then(response => response.json())
+      .then(json => { recordsApp3.persons = json })
+    },
+    fetchCertificate() {
+      fetch('api/records/certpull.php')
+      .then(response => response.json())
+      .then(json => { recordsApp3.certificate = json })
+    },
     fetchCertTrack() {
       fetch('api/records/fetchCertTrack.php')
       .then(response => response.json())
       .then(json => { recordsApp3.certTrack = json })
     },
     handleSubmitTrack(event) {
-
+      console.log(this.recordTrack);
       fetch('api/records/postCertTrack.php', {
         method: 'POST',
         body: JSON.stringify(this.recordTrack),
@@ -177,12 +189,12 @@ var recordsApp3 = new Vue({
           "Content-Type": "application/json; charset=utf-8"
         }
       })
-       // .then( response => response.json())
-       // .then( json => {recordsApp3.certTrack.push(json[0])})
-      // .catch( err => {
-      //   console.error('RECORDS POST ERROR:');
-      //   console.error(err);
-      // });
+       .then( response => response.json())
+       .then( json => {recordsApp3.certTrack = json})
+      .catch( err => {
+        console.error('RECORDS POST ERROR:');
+        console.error(err);
+      });
       this.handleResetCertTrack();
   },
   handleEditCertTrack(event) {
@@ -229,5 +241,8 @@ var recordsApp3 = new Vue({
   },
   created() {
     this.fetchCertTrack();
+    this.fetchPersons();
+    this.fetchCertificate();
+    console.log(this.recordTrack);
   }
 });

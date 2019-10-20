@@ -19,16 +19,5 @@ $stmt->execute([
 //TODO: Error checking
 
 header('HTTP/1.1 303 See Other');
-header('Location: ../records/');
+header('Location: ../records/certpull.php');
 //303 go somewhere else
-
-// patientGuid VARCHAR(64) PRIMARY KEY,
-// firstName VARCHAR(64),
-// lastName VARCHAR(64),
-// dob DATE DEFAULT NULL,
-// sexAtBirth CHAR(1) DEFAULT ''
-
-
-
-
- ?>
