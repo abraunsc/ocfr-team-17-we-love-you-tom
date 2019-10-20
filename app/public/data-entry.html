@@ -160,7 +160,7 @@
               <option>Female</option>
             </select>
           </div>
-            <table class="table table-sm table-hover">
+            <table id="dataEntryTable1" class="table table-sm table-hover">
               <thead>
                 <tr>
                   <th>Person Id</th>
@@ -246,7 +246,7 @@
                 </div>
               </div>
             </form>
-            <table class="table table-sm table-hover">
+            <table id="dataEntryTable2" class="table table-sm table-hover">
               <thead>
                 <tr>
                   <th>Certificate ID</th>
@@ -340,7 +340,7 @@
             <form @submit.prevent = "handleEditCertTrack">
               <button type="submit" class="btn btn-primary">Modify Certification</button>
             </form>
-            <table class="table table-sm table-hover">
+            <table id="dataEntryTable3" class="table table-sm table-hover">
               <thead>
                 <tr>
                   <th>Employee ID</th>
@@ -384,4 +384,18 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <!-- <script src="js/reports.app.js"></script> -->
   <script src="js/dataEntry.app.js"></script>
+  <script src="js/detailedView.app.js"></script>
+  <script src="js/tablesort.min.js"></script>
+  <script src="js/tablesort.number.js"></script>
+  <script src="js/tablesort.date.js"></script>
+  <script>
+    new Tablesort(document.getElementById('dataEntryTable1'));
+  </script>
+  <script>
+    new Tablesort(document.getElementById('dataEntryTable2'));
+  </script>
+  <script>
+    new Tablesort(document.getElementById('dataEntryTable3'));
+  </script>
+
 </body>
