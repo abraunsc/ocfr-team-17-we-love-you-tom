@@ -37,13 +37,13 @@
   </nav>
 <ul class="nav nav-tabs" role="tablist">
   <li class="nav-item">
-    <a class="nav-link" href="#expiredcertificate" role="tab" data-toggle="tab">List of People with Expired Certifications</a>
+    <a class="nav-link" href="#expiredcertificate" role="tab" data-toggle="tab">Expired Certifications</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#bystationandradio" role="tab" data-toggle="tab">List of People by Station and Radio Number</a>
+    <a class="nav-link" href="#bystationandradio" role="tab" data-toggle="tab">Firefighters by Station and Radio Number</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#customisedreport" role="tab" data-toggle="tab">Search for a Customised Report</a>
+    <a class="nav-link" href="#customisedreport" role="tab" data-toggle="tab">Certifications by Station</a>
   </li>
 </ul>
 <!--Modified from Jek Bao Choo's code on https://codepen.io/jek/pen/BoWNRy -->
@@ -87,7 +87,7 @@
   </div>
   <div role="tabpanel" class="tab-pane fade" id="bystationandradio">
     <div class="jumbotron">
-      <h1>Search By Station and Radio Number</h1>
+      <h1>Firefighters by Station and Radio Number</h1>
     </div>
     <div class="container">
       <div class="row">
@@ -123,13 +123,44 @@
         </div>
       </div>
     </div>
+  </div>
     <div role="tabpanel" class="tab-pane fade" id="customisedreport">
       <div class="jumbotron">
-        <h1>Create a Customized Report</h1>
+        <h1>Certifications by Station</h1>
       </div>
-      <h2>Please select from the following options</h2>
+      <div class="container">
+        <div class="row">
+          <div id="mainContent" class="col-md">
+            <div id="reportsApp3">
+            <table id="reportsTable3" class="table table-sm table-hover">
+              <thead>
+                <tr>
+                  <th>Station ID</th>
+                  <th>Certificate Name</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Expiration Date</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="c in certsbystation">
+                  <td>{{ c.stationId }}</td>
+                  <td>{{ c.certName }}</td>
+                  <td>{{ c.firstName }}</td>
+                  <td>{{ c.lastName }}</td>
+                  <td>{{ c.expDate }}</td>
+
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+      <!-- <h2>Please select from the following options</h2>
       <button class="btn btn-primary">Search Member Records</button>
-      <button class="btn btn-primary">Search Certificate Records</button>
+      <button class="btn btn-primary">Search Certificate Records</button> -->
     </div>
   </div>
 </div>

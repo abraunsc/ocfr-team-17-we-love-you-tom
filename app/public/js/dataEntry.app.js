@@ -55,8 +55,13 @@ var recordsApp = new Vue({
         "Content-Type": "application/json; charset=utf-8"
       }
     })
-    //this.recordPerson.splice(0,1);
-     //location.reload();
+    .then( response => response.json())
+    .then( json => {recordsApp.persons = json })
+   .catch( err => {
+     console.error('RECORDS POST ERROR:');
+     console.error(err);
+   });
+   this.handleReset();
   },
   handleReset() {
     this.recordPerson = {
@@ -117,7 +122,22 @@ var recordsApp2 = new Vue({
   handleRowClickCert(person) {
   recordsApp2.certRecord = person;
 },
-
+  handleEditCert(event) {
+    fetch('api/records/updateCert.php', {
+      method: 'POST',
+      body: JSON.stringify(this.certRecord),
+      headers: {
+        "Content-Type": "application/json; charset=utf-8"
+      }
+    })
+     .then( response => response.json())
+     .then( json => {recordsApp2.certificate = json })
+    .catch( err => {
+      console.error('RECORDS POST ERROR:');
+      console.error(err);
+    });
+    this.handleReset();
+  },
 handleDeleteCert(event) {
   fetch('api/records/deleteCert.php', {
     method: 'POST',
@@ -126,9 +146,13 @@ handleDeleteCert(event) {
       "Content-Type": "application/json; charset=utf-8"
     }
   })
-  // this.recordPerson.splice(0,1);
-   location.reload();
-
+  .then( response => response.json())
+  .then( json => {recordsApp2.certificate = json })
+ .catch( err => {
+   console.error('RECORDS POST ERROR:');
+   console.error(err);
+ });
+ this.handleReset();
 },
   handleReset() {
     this.certRecord = {
@@ -193,7 +217,7 @@ var recordsApp3 = new Vue({
       }
     })
      .then( response => response.json())
-     .then( json => {recordsApp.certTrack = json })
+     .then( json => {recordsApp3.certTrack = json })
     .catch( err => {
       console.error('RECORDS POST ERROR:');
       console.error(err);
@@ -219,8 +243,13 @@ var recordsApp3 = new Vue({
           "Content-Type": "application/json; charset=utf-8"
         }
       })
-      //this.recordPerson.splice(0,1);
-       location.reload();
+      .then( response => response.json())
+      .then( json => {recordsApp3.certTrack = json })
+     .catch( err => {
+       console.error('RECORDS POST ERROR:');
+       console.error(err);
+     });
+     this.handleResetCertTrack();
     },
     handleRowClick(person) {
       recordsApp3.recordTrack = person;

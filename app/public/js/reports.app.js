@@ -28,8 +28,23 @@ var reportsApp2 = new Vue({
     }
   },
   created() {
-
     this.fetchPersonsByStationRadio();
+  }
+});
 
+var reportsApp3 = new Vue({
+  el: '#reportsApp3',
+  data: {
+    certsbystation: []
+  },
+  methods: {
+    fetchCertsByStation() {
+      fetch('api/reports/certsByStation.php')
+      .then(response => response.json())
+      .then(json => { reportsApp3.certsbystation = json })
+    }
+  },
+  created() {
+    this.fetchCertsByStation();
   }
 });

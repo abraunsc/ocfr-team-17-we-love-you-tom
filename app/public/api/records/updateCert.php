@@ -7,9 +7,13 @@
 $db = DbConnection::getConnection();
 
 // Step 2: Create & run the query
-$stmt = $db->prepare('DELETE FROM Certificate WHERE certId = ?');
+$stmt = $db->prepare('UPDATE Certificate
+  SET certAgency = ?, certName = ?, defaultExpPeriod = ? WHERE certId = ?');
 $stmt->execute([
-  $_POST['certId']
+  $_POST['certAgency'],
+  $_POST['certName'],
+  $_POST['defaultExpPeriod'],
+  $_POST['certId'],
 ]);
 
 //TODO: Error checking
