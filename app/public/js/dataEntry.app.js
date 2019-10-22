@@ -103,7 +103,6 @@ var recordsApp2 = new Vue({
       .then(json => { recordsApp2.certificate = json })
     },
     handleSubmitCert(event) {
-      console.log(this.certRecord);
       fetch('api/records/postcert.php', {
         method: 'POST',
         body: JSON.stringify(this.certRecord),
@@ -192,7 +191,6 @@ var recordsApp3 = new Vue({
       .then(json => { recordsApp3.certTrack = json })
     },
     handleSubmitTrack(event) {
-      console.log(this.recordTrack);
       fetch('api/records/postCertTrack.php', {
         method: 'POST',
         body: JSON.stringify(this.recordTrack),
@@ -259,6 +257,5 @@ var recordsApp3 = new Vue({
     this.fetchCertTrack();
     this.fetchPersons();
     this.fetchCertificate();
-    console.log(this.recordTrack);
   }
 });
