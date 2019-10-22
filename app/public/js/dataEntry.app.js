@@ -131,29 +131,16 @@ handleDeleteCert(event) {
 
 },
   handleReset() {
-
     this.certRecord = {
-
       certAgency: '',
-
       certName: '',
-
       defaultExpPeriod: '',
-
     }
-
   }
-
-
-
 },
-
   created() {
-
     this.fetchCertificate();
-
   }
-
 } );
 
 var recordsApp3 = new Vue({

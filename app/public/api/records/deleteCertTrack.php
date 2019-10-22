@@ -7,9 +7,10 @@
 $db = DbConnection::getConnection();
 
 // Step 2: Create & run the query
-$stmt = $db->prepare('DELETE FROM CertTracking WHERE personId = ?');
+$stmt = $db->prepare('DELETE FROM CertTracking WHERE personId = ? and certId = ?');
 $stmt->execute([
-  $_POST['personId']
+  $_POST['personId'],
+  $_POST['certId']
 ]);
 
 //TODO: Error checking
