@@ -51,10 +51,12 @@
 <!-- Tab panes -->
 <div class="center">
 <div class="tab-content">
-  <div class="jumbotron">
-    <h1>Firefighters</h1>
-  </div>
+  <br>
+  <img src="images/firefighters.png" width="100%">
   <div role="tabpanel" class="tab-pane fade in active" id="add">
+    <div class="jumbotron">
+      <h1>Firefighters</h1>
+    </div>
     <div class="container">
       <div class="row">
         <div id="mainContent" class="col-md">
@@ -128,16 +130,6 @@
                       <option v-for="s in stations" :value="s.stationId">{{ s.stationId }}</option>
                   </select>
                 </div>
-              </div>
-              <div class="form-check-inline">
-                <label class="form-check-label" for="inputIsActiveYes">
-                  <input type="radio" class="form-check-input" id="inputIsActiveYes" name="isActive" value="Active" checked v-model="recordPerson.isActive" >Active
-                </label>
-              </div>
-              <div class="form-check-inline">
-                <label class="form-check-label" for="inputIsActiveNo">
-                  <input type="radio" class="form-check-input" id="inputIsActiveNo" name="isActive" value="Not Active">Not Active
-                </label>
               </div>
 
               <div class="form-group row">
