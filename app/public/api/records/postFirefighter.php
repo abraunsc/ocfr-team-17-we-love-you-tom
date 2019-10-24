@@ -8,13 +8,15 @@ $db = DbConnection::getConnection();
 
 // Step 2: Create & run the query
 $stmt = $db->prepare('INSERT INTO FireFighter
-  (firstName, lastName, address, email, dob, gender, startDate, radioNumber, stationId)
-  VALUES (?,?,?,?,?,?,?,?,?)');
+  (firstName, lastName, address, email, workPhone, personalPhone,  dob, gender, startDate, radioNumber, stationId)
+  VALUES (?,?,?,?,?,?,?,?,?,?,?)');
 $stmt->execute([
   $_POST['firstName'],
   $_POST['lastName'],
   $_POST['address'],
   $_POST['email'],
+  $_POST['workPhone'],
+  $_POST['personalPhone'],
   $_POST['dob'],
   $_POST['gender'],
   $_POST['startDate'],
