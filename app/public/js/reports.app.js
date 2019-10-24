@@ -22,7 +22,7 @@ var reportsApp2 = new Vue({
   },
   methods: {
     fetchPersonsByStationRadio() {
-      fetch('api/reports/stationRadio.php')
+      fetch('api/reports/stationAndRadio.php')
       .then(response => response.json())
       .then(json => { reportsApp2.personsbystationradio = json })
     }
