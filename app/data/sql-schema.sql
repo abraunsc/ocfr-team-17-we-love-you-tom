@@ -6,20 +6,14 @@ CREATE TABLE Person (
     lastName VARCHAR(64),
     address VARCHAR (64),
     email VARCHAR(64),
+    workPhone VARCHAR(64),
+    personalPhone VARCHAR(64),
     dob DATE NOT NULL,
     gender VARCHAR(64) NOT NULL,
     startDate DATE NOT NULL,
     position VARCHAR(64),
     radioNumber VARCHAR (64),
     isActive BOOLEAN
-);
-
-CREATE TABLE PersonPhone(
-  personId INTEGER,
-  phoneType VARCHAR(64),
-  phoneNumber VARCHAR (64),
-  PRIMARY KEY (personId, phoneNumber),
-  FOREIGN KEY (personId) REFERENCES Person (personId)
 );
 
 CREATE TABLE Station(
