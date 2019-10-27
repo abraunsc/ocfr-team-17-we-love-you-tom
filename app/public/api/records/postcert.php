@@ -19,5 +19,5 @@ $stmt->execute([
 //TODO: Error checking
 
 header('HTTP/1.1 303 See Other');
-header('Location: ../records/certpull.php');
+header('Location: ../records/fetchCerts.php');
 //303 go somewhere else
