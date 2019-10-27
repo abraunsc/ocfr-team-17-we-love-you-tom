@@ -106,7 +106,7 @@ var recordsApp2 = new Vue({
       .then(json => { recordsApp2.certificate = json })
     },
     handleSubmitCert(event) {
-      fetch('api/records/postcert.php', {
+      fetch('api/records/postCert.php', {
         method: 'POST',
         body: JSON.stringify(this.certRecord),
         headers: {
