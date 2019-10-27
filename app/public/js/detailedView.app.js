@@ -8,7 +8,6 @@ var detailedViewApp = new Vue({
   },
   methods: {
     handleSubmitPerson(event) {
-      console.log(this.recordPerson);
       fetch('api/records/detailedView.php', {
         method: 'POST',
         body: JSON.stringify(this.recordPerson),
@@ -60,6 +59,5 @@ var detailedViewApp = new Vue({
   }
 },
   created() {
-    // this.fetchPersons();
   }
 } );

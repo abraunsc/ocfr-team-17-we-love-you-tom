@@ -1,3 +1,4 @@
+//tken from a stack overflow thread https://stackoverflow.com/questions/15547198/export-html-table-to-csv
 $(document).ready(function () {
    $('table').each(function () {
        var $table = $(this);

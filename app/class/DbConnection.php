@@ -1,12 +1,10 @@
 <?php
 
+//file taken from Tom's project triage
 class DbConnection
 {
   protected static $connection;
 
-  // function __create() {
-  //
-  // }
 
     static function getConnection() {
       if (self::$connection) {

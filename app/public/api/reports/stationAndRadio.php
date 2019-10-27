@@ -9,11 +9,6 @@ $stmt = $db->prepare('SELECT * FROM FireFighter ORDER BY stationId, radioNumber'
 $stmt->execute();
 
 $personsbystationradio = $stmt->fetchAll();
-// patientGuid VARCHAR(64) PRIMARY KEY,
-// firstName VARCHAR(64),
-// lastName VARCHAR(64),
-// dob DATE DEFAULT NULL,
-// sexAtBirth CHAR(1) DEFAULT ''
 
 // Step 3: Convert to JSON
 $json = json_encode($personsbystationradio, JSON_PRETTY_PRINT);

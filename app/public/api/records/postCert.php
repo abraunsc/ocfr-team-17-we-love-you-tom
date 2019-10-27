@@ -1,7 +1,5 @@
 <?php
-// 0. Validate my data
 
-//$_GET, $_POST, $_ENV, $_SERVER
 
 // Step 1: Get a datase connection from our help class
 $db = DbConnection::getConnection();
