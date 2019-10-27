@@ -52,8 +52,8 @@ CREATE TABLE CertTracking(
   dateRenewed DATE NOT NULL,
   expDate DATE,
   PRIMARY KEY (personId, certId),
-  FOREIGN KEY (personId) REFERENCES FireFighter (personId),
-  FOREIGN KEY (certId) REFERENCES Certificate (certId)
+  FOREIGN KEY (personId) REFERENCES FireFighter (personId) ON DELETE CASCADE,
+  FOREIGN KEY (certId) REFERENCES Certificate (certId) ON DELETE CASCADE
 );
 
 CREATE TABLE ExpiredCertTracking(
